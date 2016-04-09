@@ -45,10 +45,10 @@ public class BallGrabber : MonoBehaviour {
 	void Update ()
 	{
 
-	    if (transform.position.y < spawnZone.transform.position.y + offset.y)
+	    if (transform.position.y < spawnZone.transform.position.y + offset.y + 1)
 	    {
             BallReset();
-            transform.position = spawnZone.BallSpawnZone.position;
+            transform.position = spawnZone.GetRandomBallSpawnZone();
         }
 
         if (isCaught)
