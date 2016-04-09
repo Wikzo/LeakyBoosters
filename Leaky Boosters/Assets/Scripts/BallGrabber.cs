@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class BallGrabber : MonoBehaviour {
 
@@ -45,7 +46,6 @@ public class BallGrabber : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
 	    if (transform.position.y < spawnZone.transform.position.y)
 	    {
             BallReset();
@@ -55,9 +55,11 @@ public class BallGrabber : MonoBehaviour {
         if (isCaught)
 		{
 			StayOnPlayer ();
-		}
 
-		if (Input.GetKeyDown(KeyCode.T))
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
 		{
 			print (curFollowers);
 			LoseFollowers ();
@@ -67,11 +69,16 @@ public class BallGrabber : MonoBehaviour {
 
 	void StayOnPlayer()
 	{
-		transform.position = curOwner.transform.position + offset * 2.6f;
-		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
+	    int playerNum = curOwner.GetComponent<PlayerMovement>().playerNum;
+
+        transform.position = curOwner.transform.position + offset*curOwner.transform.localScale.y*1.2f;
+		PlayerScores.AddScore(playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
+
+        transform.RotateAround(Vector3.up, PlayerScores.GetScore(playerNum) * Time.deltaTime / 1000);
+
 	}
 
-	void SetCurOwner(int playerIndex)
+    void SetCurOwner(int playerIndex)
 	{
 		curFollowers = maxFollowers;
 
@@ -88,6 +95,9 @@ public class BallGrabber : MonoBehaviour {
     public float ForceFieldRadius = 5;
 	private void ActivateForceField(Rigidbody playerBody)
     {
+        Instantiate(ShockWavePrefab, transform.position, Quaternion.identity);
+        Camera.main.GetComponent<CameraControl>().ShakeScreen(Random.Range(0.2f, 0.4f));
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, ForceFieldRadius);
         foreach (Collider hit in colliders)
         {
@@ -100,9 +110,7 @@ public class BallGrabber : MonoBehaviour {
 
 			if (rb != null && rb != playerBody)
             {
-                Instantiate(ShockWavePrefab, transform.position, Quaternion.identity);
 				rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
-				Camera.main.GetComponent<CameraControl> ().ShakeScreen (Random.Range(0.2f, 0.4f));
             }
         }
     }
