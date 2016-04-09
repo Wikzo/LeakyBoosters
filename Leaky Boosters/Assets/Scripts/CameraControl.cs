@@ -9,6 +9,8 @@ public class CameraControl : MonoBehaviour {
 	//[SerializeField]
 	//float dampTime; 
 
+    public List<AudioClip> ScreenShakeSounds;
+    private AudioSource audioSource;
 	GameObject[] playerObjs;
 	//float[] xValues;
 	//float[] zValues;
@@ -48,7 +50,10 @@ public class CameraControl : MonoBehaviour {
 		startPos = transform.position;
 		shakeTransform = this.transform;
 
-	
+	    audioSource = GetComponent<AudioSource>();
+
+
+
 	}
 	
 	// Update is called once per frame
@@ -70,9 +75,10 @@ public class CameraControl : MonoBehaviour {
 	{
 		isShaking = 1;
 		shakeTransform.DOShakePosition (shakeTime, 2f, 20, Random.Range (10, 80));
-		//transform.position.DOShakePosition (shakeTime, 2f, 10, Random.Range (10, 80));
+        //transform.position.DOShakePosition (shakeTime, 2f, 10, Random.Range (10, 80));
 
-		StartCoroutine (Cooldown (shakeTime));
+        audioSource.PlayOneShot(ScreenShakeSounds[Random.Range(0, ScreenShakeSounds.Count)]);
+        StartCoroutine (Cooldown (shakeTime));
 	}
 		
 	IEnumerator Cooldown(float shakeTime)

@@ -10,8 +10,7 @@ public class BallGrabber : MonoBehaviour {
 	int maxFollowers = 100;
 	int curFollowers = 100;
 
-	[SerializeField]
-	Vector3 offset = new Vector3 (0f, 2f, 0f);
+    [SerializeField] private Vector3 offset;
 	bool isCaught = false;
 	[SerializeField]
 	private float forceMultiplier; 
@@ -37,6 +36,8 @@ public class BallGrabber : MonoBehaviour {
 
 	    renderer = GetComponent<Renderer>();
 
+        offset = new Vector3(0,transform.localScale.y / 2,0);
+
 
 
 	}
@@ -48,7 +49,7 @@ public class BallGrabber : MonoBehaviour {
 	    if (transform.position.y < spawnZone.transform.position.y + offset.y)
 	    {
             BallReset();
-            transform.position = spawnZone.BallSpawnZone.position;
+            transform.position = spawnZone.GetRandomBallSpawnZone();
         }
 
         if (isCaught)
@@ -66,7 +67,7 @@ public class BallGrabber : MonoBehaviour {
 
 	void StayOnPlayer()
 	{
-		transform.position = curOwner.transform.position + offset;
+		transform.position = curOwner.transform.position + offset * 2.6f;
 		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
 	}
 
@@ -157,7 +158,7 @@ public class BallGrabber : MonoBehaviour {
         myCol.enabled = true;
         curOwner = null;
         isCaught = false;
-        myBody.isKinematic = true;
+        myBody.isKinematic = false;
 
         StartCoroutine(BlinkRespawn(6));
 
