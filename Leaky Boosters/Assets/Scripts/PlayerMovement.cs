@@ -31,9 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private Playerstate playerState;
 
+
     public float ChargingAdderPerSecond = 50f;
     public float chargingMultiplier;
     public float MaxCharging = 100;
+	private bool isCharging = false;
+	public bool IsCharging { get{return isCharging;} set{ isCharging = value; } }
 
     public float ChargeScaleUpTime = 2f;
     public float ChargeScaleDownTime = 0.5f;
@@ -55,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         killZone = spawnZones.transform;
 		colorSprite.color = playerColor;
 		//cubeRenderer.material.color = playerColor;
+
+		IsCharging = false;
     }
 
     void Update()
@@ -93,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
 		{
             // shoot
 		    //if (direction != Vector3.zero)
+
+			IsCharging = true; 
+			//StartCoroutine (Charging (chargingMultiplier));
+
 		    rigidbody.AddForce(transform.forward*chargingMultiplier, forcemode);
 		    // jump
 		    /*else
@@ -101,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 		        //rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
 		    }*/
 
+			print ("im here");
 
 		    chargingMultiplier = 0;
         }
@@ -110,6 +120,11 @@ public class PlayerMovement : MonoBehaviour
 			//cubeRenderer.material.color = playerColor;
 
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * ChargeScaleDownTime);
+
+			if (IsCharging && transform.localScale.magnitude <= 3.0f)
+			{
+				IsCharging = false;
+			}
 
         }
 
@@ -200,5 +215,11 @@ public class PlayerMovement : MonoBehaviour
 			hasBall = false;
 			//print ("Got hit");
 		}
+	}
+
+	IEnumerator Charging(float timeAmount)
+	{
+		yield return new WaitForSeconds (timeAmount);
+		IsCharging = false;
 	}
 }
