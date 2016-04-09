@@ -44,7 +44,12 @@ public class BallGrabber : MonoBehaviour {
 	void SetCurOwner(int playerIndex)
 	{
 		curFollowers = maxFollowers;
+
+		if(curOwner != null)
+			curOwner.GetComponent<PlayerControl> ().SetHasBall (false);
+		
 		curOwner = GetPlayer(playerIndex);
+		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -55,6 +60,7 @@ public class BallGrabber : MonoBehaviour {
 			GetComponent<Rigidbody>().isKinematic = true;
 			GetComponent<SphereCollider>().enabled = false;
 			SetCurOwner(other.transform.GetComponent<PlayerMovement> ().playerNum);
+
 		}
 	}
 
@@ -72,15 +78,26 @@ public class BallGrabber : MonoBehaviour {
 	}
 
 
-	void LoseFollowers()
+	public void LoseFollowers()
 	{
-		curFollowers -= 20;
+	//	curFollowers -= 20;
 
-		if (curFollowers <= 0)
-		{
+	//	if (curFollowers <= 0)
+		//{
 			GetComponent<Rigidbody>().isKinematic = false;
-			GetComponent<SphereCollider>().enabled = true;
+			GetComponent<SphereCollider>().enabled = false;
+			float rnd = Random.Range (0f, 1f);
+			GetComponent<Rigidbody> ().AddForce ( Vector3.up * 100f);
+			StartCoroutine (Cooldown ());
+		//	print ("I lost the ball");
 			isCaught = false; 
-		}
+	//	}
+	}
+
+	IEnumerator Cooldown()
+	{
+		yield return new WaitForSeconds (1f);
+		GetComponent<SphereCollider>().enabled = true;
+
 	}
 }

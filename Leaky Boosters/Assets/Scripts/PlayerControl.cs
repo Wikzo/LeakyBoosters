@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour {
 	[SerializeField]
 	private int playerIndex; 
 
+	private bool hasBall = false;
 
 
 	public int GetPlayerIndex()
@@ -13,4 +14,18 @@ public class PlayerControl : MonoBehaviour {
 		return playerIndex;
 	}
 		
+
+	public void SetHasBall(bool aVal)
+	{
+		hasBall = aVal;
+	}
+
+	void OnCollisionEnter(Collision col)
+	{
+		if (hasBall && col.transform.CompareTag("Player"))
+		{
+			GameController.Instance.GetBall().GetComponent<BallGrabber>().LoseFollowers ();
+			//print ("Got hit");
+		}
+	}
 }
