@@ -49,6 +49,9 @@ public class GameController : MonoBehaviour {
 			RestartLevel();
 		}
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
 
 	}
 
