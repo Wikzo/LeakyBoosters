@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (hasBall && collision.transform.CompareTag("Player"))
 		{
-			GameController.Instance.GetBall().GetComponent<BallGrabber>().LoseFollowers ();
+			GameController.Instance.GetBallGrabber().LoseFollowers ();
 			hasBall = false;
 			//print ("Got hit");
 		}

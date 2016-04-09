@@ -61,6 +61,7 @@ public class IngameGUI : MonoBehaviour {
 			countdown.text = Mathf.FloorToInt(secondsToStart).ToString();
 		}
 		countdown.text = "GO!";
+		GameController.Instance.ballGrabInstance.gameObject.SetActive(true);
 		countdown.CrossFadeAlpha(0,2f,true);
 		SunGUI.gameOver = false;
 

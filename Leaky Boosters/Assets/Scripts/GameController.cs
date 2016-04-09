@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 
 	public static GameController Instance;
-	private GameObject ballObj;
-	private BallGrabber ballGrabInstance;
+	public BallGrabber ballGrabInstance;
 	public static int playerCount;
 	public PlayerMovement[] players;
 	public PlayerMovement[] activePlayers;
@@ -22,13 +21,6 @@ public class GameController : MonoBehaviour {
 		DontDestroyOnLoad (this);
 	}
 		
-	void Start()
-	{
-		if (ballObj == null)
-			ballObj = GameObject.FindGameObjectWithTag ("Ball");
-
-		ballGrabInstance = ballObj.GetComponent<BallGrabber> ();
-	}
 
 	public void InstantiateGame(int[] playerNums){
 		playerCount = playerNums.Length;
@@ -44,11 +36,6 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (ballObj == null)
-		{
-			print ("Missing ball");
-			return;
-		}
 		if(Input.GetKeyDown(KeyCode.R))
 		{
 			RestartLevel();
@@ -64,11 +51,6 @@ public class GameController : MonoBehaviour {
 	public void RestartLevel()
 	{
 		SceneManager.LoadScene (0);
-	}
-
-	public GameObject GetBall()
-	{
-		return ballObj;
 	}
 
 	public BallGrabber GetBallGrabber()

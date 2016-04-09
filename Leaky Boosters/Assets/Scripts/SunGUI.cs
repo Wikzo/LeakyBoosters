@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-
+using UnityEngine.UI;
 
 public class SunGUI : MonoBehaviour {
 
@@ -26,7 +26,7 @@ public class SunGUI : MonoBehaviour {
 	private GameObject[] stars = new GameObject[0]; //Player 0, 1, 2, 3
 
 	private float initialAngle;
-	private float targetAngle = 18;
+	private float targetAngle = 0;
 
 	public float timeLimit = 120;
 	public float time;
@@ -81,6 +81,7 @@ public class SunGUI : MonoBehaviour {
 			newStar.transform.SetParent(starCanvas.transform);
 			newStar.GetComponent<RectTransform>().anchoredPosition = starPositions[i];
 			newStar.transform.localScale = Vector3.one;
+			newStar.GetComponent<Image>().color = GameController.Instance.activePlayers[i].playerColor;
 
 			stars[i] = newStar;
 		}

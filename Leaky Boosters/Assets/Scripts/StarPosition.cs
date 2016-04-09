@@ -6,7 +6,7 @@ public class StarPosition : MonoBehaviour {
 	[Range(0,1)]
 	public float proximity = 0;
 	private Vector2 initPos;
-	private static Vector2 targetPos = new Vector2(0, 9);
+	private static Vector2 targetPos = new Vector2(0, 60);
 
 	// Use this for initialization
 	void Start () {

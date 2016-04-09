@@ -19,7 +19,9 @@ public class PlayerJoinPrompt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Color bg = GameController.Instance.players[playerNum].playerColor;
+		bg.a = 0.7f;
+		background.color = bg;
 	}
 	
 	// Update is called once per frame
@@ -35,11 +37,15 @@ public class PlayerJoinPrompt : MonoBehaviour {
 					text.text = needMorePlayers;
 				}
 			} else {
-				if(!ready && IngameGUI.Instance.EnoughJoined()){
+				if(!ready){
 					ready = true;
-					text.text = waitingForPlayers;
-					if(IngameGUI.Instance.AllReady()){
-						IngameGUI.Instance.StartGame();
+					if(IngameGUI.Instance.EnoughJoined()){
+						text.text = waitingForPlayers;
+						if(IngameGUI.Instance.AllReady()){
+							IngameGUI.Instance.StartGame();
+						}
+					} else {
+						text.text = needMorePlayers;
 					}
 				}
 			}

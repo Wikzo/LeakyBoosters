@@ -114,11 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d99eda11b8984c74933d6b928ef823d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballGrabInstance: {fileID: 0}
   players:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  activePlayers: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
