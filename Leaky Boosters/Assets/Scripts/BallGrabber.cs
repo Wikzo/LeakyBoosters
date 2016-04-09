@@ -24,6 +24,8 @@ public class BallGrabber : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
+
+		print (players [0]);
 		myBody = GetComponent<Rigidbody> ();
 		myCol = GetComponent<SphereCollider> ();
 
@@ -32,10 +34,6 @@ public class BallGrabber : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
-
-	    if (Input.GetKeyDown(KeyCode.Space))
-	        ActivateForceField();
 
         if (isCaught)
 		{
@@ -65,13 +63,13 @@ public class BallGrabber : MonoBehaviour {
 		curOwner = GetPlayer(playerIndex);
 		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
 
-	    ActivateForceField();
-
+		ActivateForceField(curOwner.GetComponent<Rigidbody>());
+		Camera.main.GetComponent<CameraControl> ().ShakeScreen (Random.Range(0.2f, 0.4f));
 	}
 
     public float ForceFieldPower = 10f;
     public float ForceFieldRadius = 5;
-    private void ActivateForceField()
+	private void ActivateForceField(Rigidbody playerBody)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, ForceFieldRadius);
         foreach (Collider hit in colliders)
@@ -81,7 +79,9 @@ public class BallGrabber : MonoBehaviour {
 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
-            if (rb != null)
+			//print (playerBody);
+
+			if (rb != null && rb != playerBody)
             {
                 Instantiate(ShockWavePrefab, transform.position, Quaternion.identity);
                 rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
