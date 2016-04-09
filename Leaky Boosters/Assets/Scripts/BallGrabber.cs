@@ -13,10 +13,17 @@ public class BallGrabber : MonoBehaviour {
 	[SerializeField]
 	Vector3 offset = new Vector3 (0f, 2f, 0f);
 	bool isCaught = false;
+	[SerializeField]
+	private float forceMultiplier; 
+
+	Rigidbody myBody;
+	SphereCollider myCol;
 
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
+		myBody = GetComponent<Rigidbody> ();
+		myCol = GetComponent<SphereCollider> ();
 
 	}
 	
@@ -57,8 +64,8 @@ public class BallGrabber : MonoBehaviour {
 		if (!isCaught && other.transform.CompareTag("Player"))
 		{
 			isCaught = true;
-			GetComponent<Rigidbody>().isKinematic = true;
-			GetComponent<SphereCollider>().enabled = false;
+			myBody.isKinematic = true;
+			myCol.enabled = false;
 			SetCurOwner(other.transform.GetComponent<PlayerMovement> ().playerNum);
 
 		}
@@ -80,24 +87,27 @@ public class BallGrabber : MonoBehaviour {
 
 	public void LoseFollowers()
 	{
-	//	curFollowers -= 20;
+		myBody.isKinematic = false;
 
-	//	if (curFollowers <= 0)
-		//{
-			GetComponent<Rigidbody>().isKinematic = false;
-			GetComponent<SphereCollider>().enabled = false;
-			float rnd = Random.Range (0f, 1f);
-			GetComponent<Rigidbody> ().AddForce ( Vector3.up * 100f);
-			StartCoroutine (Cooldown ());
-		//	print ("I lost the ball");
-			isCaught = false; 
-	//	}
+		// Get a pseudorandom direction above a certain threshold. Ssssssh gamejam code.. 
+		int rnd = Random.Range (0, 2);
+		if (rnd == 0)
+		{
+			myBody.AddForce ( new Vector3(Random.Range(0.6f, 1f), 1, Random.Range(0.6f, 1f)) * forceMultiplier * 100f);
+		} else
+		{
+			myBody.AddForce ( new Vector3(Random.Range(-0.6f, -1f), 1, Random.Range(-0.6f, -1f)) * forceMultiplier * 100f);
+		}
+
+		//myCol.enabled = true;
+		StartCoroutine (Cooldown ());
+		curOwner = null;
+		isCaught = false; 
 	}
 
 	IEnumerator Cooldown()
 	{
-		yield return new WaitForSeconds (1f);
-		GetComponent<SphereCollider>().enabled = true;
-
+		yield return new WaitForSeconds (0.4f);
+		myCol.enabled = true;
 	}
 }
