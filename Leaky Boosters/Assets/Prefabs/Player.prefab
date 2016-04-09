@@ -29,9 +29,10 @@ GameObject:
   - 54: {fileID: 5455978}
   - 114: {fileID: 11463546}
   - 96: {fileID: 9690414}
+  - 114: {fileID: 11411092}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -2.35}
+  m_LocalPosition: {x: 5, y: 1, z: -2.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408698}
@@ -170,7 +171,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!65 &6515536
 BoxCollider:
@@ -231,6 +232,18 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &11411092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578f52c4f9a2e4495a73536680e12635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 0
 --- !u!114 &11463546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,7 +266,7 @@ MonoBehaviour:
   ChargeScaleUpTime: 2
   ChargeScaleDownTime: 0.5
   MaxChargeScale: {x: 2, y: 2, z: 2}
-  hitPower: 300
+  hitPower: 500
   jumpPower: 1
 --- !u!1001 &100100000
 Prefab:

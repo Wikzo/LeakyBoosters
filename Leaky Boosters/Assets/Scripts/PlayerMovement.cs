@@ -9,6 +9,12 @@ public enum ButtonStatus
     Up
 }
 
+public enum Playerstate
+{
+	Grounded,
+	Airborne
+}
+
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -22,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     private ButtonStatus lastButtonState;
     private ButtonStatus currentButtonState;
+
+	private Playerstate playerState;
 
     public float ChargingAdderPerSecond = 50f;
     public float chargingMultiplier;
@@ -54,8 +62,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = new Vector3(acceleration * Time.deltaTime * inputDevice.LeftStickX, 0,
             acceleration * Time.deltaTime * inputDevice.LeftStickY);
 
-        if (direction != Vector3.zero)
+		if (direction != Vector3.zero){
 			transform.LookAt(transform.position + direction);
+		} else {
+			//transform.LookAt(transform.position + Vector3.up);
+		}
 
         // charging
         if (currentButtonState == ButtonStatus.Down)
@@ -77,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 rigidbody.AddForce(transform.forward * chargingMultiplier, forcemode);
             // jump
 			else{
+				Debug.Log("Jump");
 				//rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
 			}
 
@@ -92,13 +104,17 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-
-
-        
-
         rigidbody.AddForce(direction, forcemode);
 
         lastButtonState = currentButtonState;
+//		if(Physics.Raycast(transform.position,Vector3.down, 1)){
+//			playerState = Playerstate.Grounded;
+//		} else {
+//			playerState = Playerstate.Airborne;
+//		}
+//		if(rigidbody.velocity.y < 0 && playerState != Playerstate.Grounded){
+//			rigidbody.AddForce(Vector3.down * 100);
+//		}
 
     }
 
@@ -109,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 	bool hitOncePrFrame = false;
 	void OnCollisionEnter(Collision collision){
 		Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();
-		if(other == null || hitOncePrFrame) return;
+		if(other == null || hitOncePrFrame || !other.transform.CompareTag("Player")) return;
 		hitOncePrFrame = true;
 
 		float repulsePower = Mathf.Log10(Mathf.Max(1,collision.relativeVelocity.sqrMagnitude - other.velocity.sqrMagnitude));

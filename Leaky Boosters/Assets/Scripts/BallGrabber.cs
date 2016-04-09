@@ -52,7 +52,9 @@ public class BallGrabber : MonoBehaviour {
 		if (!isCaught && other.transform.CompareTag("Player"))
 		{
 			isCaught = true;
-			SetCurOwner(other.transform.GetComponent<PlayerControl> ().GetPlayerIndex());
+			GetComponent<Rigidbody>().isKinematic = true;
+			GetComponent<SphereCollider>().enabled = false;
+			SetCurOwner(other.transform.GetComponent<PlayerMovement> ().playerNum);
 		}
 	}
 
@@ -60,7 +62,7 @@ public class BallGrabber : MonoBehaviour {
 	{
 		for (int i = 0; i < players.Length; i++)
 		{
-			if (players[i].GetComponent<PlayerControl>().GetPlayerIndex() == playerIndex)
+			if (players[i].GetComponent<PlayerMovement>().playerNum == playerIndex)
 			{
 				return players [i];
 			}
@@ -76,6 +78,8 @@ public class BallGrabber : MonoBehaviour {
 
 		if (curFollowers <= 0)
 		{
+			GetComponent<Rigidbody>().isKinematic = false;
+			GetComponent<SphereCollider>().enabled = true;
 			isCaught = false; 
 		}
 	}
