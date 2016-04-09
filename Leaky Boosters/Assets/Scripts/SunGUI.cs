@@ -47,6 +47,7 @@ public class SunGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(gameOver) return;
 		time += Time.deltaTime;
 		float gameProgress =  time / timeLimit;
 		Vector3 newEulerAngles = sunSource.transform.eulerAngles;
