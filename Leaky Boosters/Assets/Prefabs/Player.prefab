@@ -247,7 +247,7 @@ MonoBehaviour:
   acceleration: 100
   forcemode: 2
   cubeRenderer: {fileID: 2394670}
-  playerColor: {r: 1, g: 0.9724138, b: 0, a: 1}
+  playerColor: {r: 0.9862069, g: 1, b: 0, a: 1}
   ChargingAdderPerSecond: 100
   chargingMultiplier: 0
   MaxCharging: 200
@@ -266,9 +266,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7
-  m_Height: 2.5
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.51, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
