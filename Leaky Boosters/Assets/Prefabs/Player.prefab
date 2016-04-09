@@ -25,11 +25,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446750}
-  - 65: {fileID: 6515536}
   - 54: {fileID: 5455978}
   - 114: {fileID: 11463546}
   - 96: {fileID: 9690414}
   - 114: {fileID: 11411092}
+  - 136: {fileID: 13670108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -173,18 +173,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!65 &6515536
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114414}
-  m_Material: {fileID: 13400000, guid: ee4b0cec589b443a6842807a5bb47a87, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!96 &9690414
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -268,6 +256,19 @@ MonoBehaviour:
   MaxChargeScale: {x: 2, y: 2, z: 2}
   hitPower: 500
   jumpPower: 1
+--- !u!136 &13670108
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
