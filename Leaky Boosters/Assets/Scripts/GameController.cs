@@ -7,7 +7,13 @@ public class GameController : MonoBehaviour {
 	public static GameController Instance;
 	private GameObject ballObj;
 	private BallGrabber ballGrabInstance;
+<<<<<<< HEAD
 	public static int playerCount;
+=======
+
+	int activePlayers; 
+
+>>>>>>> 95d1454dad6162499875a5d1d1bde3226e32abff
 
 	void Awake()
 	{

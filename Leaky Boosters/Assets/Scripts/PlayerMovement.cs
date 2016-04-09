@@ -43,9 +43,15 @@ public class PlayerMovement : MonoBehaviour
 
 	public float jumpPower = 2;
 
+
+    private SpawnZones spawnZones;
+    private Transform killZone;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        spawnZones = FindObjectOfType<SpawnZones>();
+        killZone = spawnZones.transform;
 
     }
 
@@ -84,16 +90,17 @@ public class PlayerMovement : MonoBehaviour
         else if (currentButtonState == ButtonStatus.Up && lastButtonState == ButtonStatus.Down)
 		{
             // shoot
-            if (direction != Vector3.zero)
-                rigidbody.AddForce(transform.forward * chargingMultiplier, forcemode);
-            // jump
-			else{
-				Debug.Log("Jump");
-				//rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
-			}
+		    //if (direction != Vector3.zero)
+		    rigidbody.AddForce(transform.forward*chargingMultiplier, forcemode);
+		    // jump
+		    /*else
+		    {
+		        Debug.Log("Jump");
+		        //rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
+		    }*/
 
 
-			chargingMultiplier = 0;
+		    chargingMultiplier = 0;
         }
         // idle
         else
@@ -107,14 +114,25 @@ public class PlayerMovement : MonoBehaviour
         rigidbody.AddForce(direction, forcemode);
 
         lastButtonState = currentButtonState;
-//		if(Physics.Raycast(transform.position,Vector3.down, 1)){
-//			playerState = Playerstate.Grounded;
-//		} else {
-//			playerState = Playerstate.Airborne;
-//		}
-//		if(rigidbody.velocity.y < 0 && playerState != Playerstate.Grounded){
-//			rigidbody.AddForce(Vector3.down * 100);
-//		}
+        /*if (Physics.Raycast(transform.position, Vector3.down, 1))
+        {
+            playerState = Playerstate.Grounded;
+        }
+        else
+        {
+            playerState = Playerstate.Airborne;
+        }*/
+
+        //print(isGrounded);
+        //print(rigidbody.velocity.y);
+        if (rigidbody.velocity.y < -1 && !isGrounded)
+        {
+            rigidbody.AddForce(Vector3.down*3, ForceMode.Impulse);
+            //print("adding velocity down");
+        }
+
+        if (transform.position.y < killZone.position.y - 10)
+            Respawn();
 
     }
 
@@ -122,7 +140,45 @@ public class PlayerMovement : MonoBehaviour
 		hitOncePrFrame = false;
 	}
 
-	bool hitOncePrFrame = false;
+    private void Respawn()
+    {
+        transform.position = spawnZones.GetRandomSpawnZone();
+
+        StartCoroutine(BlinkRespawn(6));
+    }
+
+    IEnumerator BlinkRespawn(int count)
+    {
+        cubeRenderer.enabled = !cubeRenderer.enabled;
+        yield return new WaitForSeconds(0.2f);
+
+        if (count - 1 > 0)
+            StartCoroutine(BlinkRespawn(count - 1));
+        else
+            cubeRenderer.enabled = true;
+    }
+
+    public bool isGrounded
+    {
+        get
+        {
+            RaycastHit hit;
+            float tresh = 0.2f;
+            float height = 1;
+            if (Physics.Raycast(transform.position, -transform.up, out hit))
+            {
+                //Debug.Log(hit.distance);
+                if (hit.distance > height / 2 + tresh)
+                {
+                    return false;
+                }
+                else return true;
+            }
+            else return false;
+        }
+    }
+
+    bool hitOncePrFrame = false;
 	void OnCollisionEnter(Collision collision){
 		Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();
 		if(other == null || hitOncePrFrame || !other.transform.CompareTag("Player")) return;

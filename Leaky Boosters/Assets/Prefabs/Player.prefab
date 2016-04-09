@@ -25,11 +25,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446750}
-  - 65: {fileID: 6515536}
   - 54: {fileID: 5455978}
   - 114: {fileID: 11463546}
   - 96: {fileID: 9690414}
   - 114: {fileID: 11411092}
+  - 136: {fileID: 13670108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -173,18 +173,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 2
---- !u!65 &6515536
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114414}
-  m_Material: {fileID: 13400000, guid: ee4b0cec589b443a6842807a5bb47a87, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!96 &9690414
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -195,7 +183,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a563fb110b07e42ad9aeb697a8e15f3f, type: 2}
+  - {fileID: 2100000, guid: 8c785eafe31de67408e6b92dda228280, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -211,22 +199,22 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 0.5
-  m_StartWidth: 0.4
-  m_EndWidth: 0.1
+  m_Time: 1
+  m_StartWidth: 1
+  m_EndWidth: 0.25
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 16777215
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 2130771784
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4279041792
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 2130968320
     m_Color[4]:
       serializedVersion: 2
       rgba: 16777215
@@ -243,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578f52c4f9a2e4495a73536680e12635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 1
 --- !u!114 &11463546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,7 +247,7 @@ MonoBehaviour:
   acceleration: 100
   forcemode: 2
   cubeRenderer: {fileID: 2394670}
-  playerColor: {r: 0, g: 1, b: 0.006896496, a: 1}
+  playerColor: {r: 1, g: 0.9724138, b: 0, a: 1}
   ChargingAdderPerSecond: 100
   chargingMultiplier: 0
   MaxCharging: 200
@@ -268,6 +256,19 @@ MonoBehaviour:
   MaxChargeScale: {x: 2, y: 2, z: 2}
   hitPower: 500
   jumpPower: 1
+--- !u!136 &13670108
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

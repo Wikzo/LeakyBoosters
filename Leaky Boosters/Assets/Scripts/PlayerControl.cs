@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour {
 		if (hasBall && col.transform.CompareTag("Player"))
 		{
 			GameController.Instance.GetBall().GetComponent<BallGrabber>().LoseFollowers ();
+			hasBall = false;
 			//print ("Got hit");
 		}
 	}
