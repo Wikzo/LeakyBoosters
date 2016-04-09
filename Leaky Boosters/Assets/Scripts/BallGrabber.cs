@@ -82,7 +82,6 @@ public class BallGrabber : MonoBehaviour {
 		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
 
 		ActivateForceField(curOwner.GetComponent<Rigidbody>());
-		Camera.main.GetComponent<CameraControl> ().ShakeScreen (Random.Range(0.2f, 0.4f));
 	}
 
     public float ForceFieldPower = 10f;
@@ -102,7 +101,8 @@ public class BallGrabber : MonoBehaviour {
 			if (rb != null && rb != playerBody)
             {
                 Instantiate(ShockWavePrefab, transform.position, Quaternion.identity);
-                rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
+				rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
+				Camera.main.GetComponent<CameraControl> ().ShakeScreen (Random.Range(0.2f, 0.4f));
             }
         }
     }

@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public float jumpPower = 2;
 
+	public SpriteRenderer colorSprite;
 
     private SpawnZones spawnZones;
     private Transform killZone;
@@ -52,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         spawnZones = FindObjectOfType<SpawnZones>();
         killZone = spawnZones.transform;
-
+		colorSprite.color = playerColor;
+		cubeRenderer.material.color = playerColor;
     }
 
     void Update()

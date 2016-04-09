@@ -35,7 +35,7 @@ public class IngameGUI : MonoBehaviour {
 		playerPanelContainer.gameObject.SetActive(true);
 		for(int i = 0; i < GameController.playerCount; i++){
 			PlayerPanel newPanel = Instantiate(playerPanelPrefab) as PlayerPanel;
-			newPanel.Initialize(Mathf.FloorToInt(PlayerScores.GetScore(i)), Color.green);
+			newPanel.Initialize(Mathf.FloorToInt(PlayerScores.GetScore(i)), GameController.Instance.players[i].playerColor);
 			newPanel.transform.SetParent(playerPanelContainer);
 			newPanel.transform.localScale = Vector3.one;
 
