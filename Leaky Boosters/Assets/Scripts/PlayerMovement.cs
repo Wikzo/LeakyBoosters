@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             //print("adding velocity down");
         }
 
-        if (transform.position.y < killZone.position.y - 10)
+        if (transform.position.y < killZone.position.y - 2)
             Respawn();
 
     }
