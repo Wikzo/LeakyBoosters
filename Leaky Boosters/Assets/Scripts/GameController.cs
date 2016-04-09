@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 	public static GameController Instance;
 	private GameObject ballObj;
 	private BallGrabber ballGrabInstance;
-
+	public static int playerCount;
 
 	void Awake()
 	{
@@ -21,10 +21,17 @@ public class GameController : MonoBehaviour {
 		
 	void Start()
 	{
+		InstantiateGame(4);
 		if (ballObj == null)
 			ballObj = GameObject.FindGameObjectWithTag ("Ball");
 
 		ballGrabInstance = ballObj.GetComponent<BallGrabber> ();
+	}
+
+	void InstantiateGame(int count){
+		playerCount = count;
+		PlayerScores.Initialize(count);
+		SunGUI.instance.InstantiateStars(count);
 	}
 	
 	// Update is called once per frame

@@ -17,4 +17,8 @@ public class StarPosition : MonoBehaviour {
 	void Update () {
 		GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(initPos, targetPos, proximity);
 	}
+
+	public void UpdateProximity(float newProxitmity){
+		proximity = newProxitmity;
+	}
 }
