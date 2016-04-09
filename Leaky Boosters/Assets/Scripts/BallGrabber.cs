@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallGrabber : MonoBehaviour
-{
+public class BallGrabber : MonoBehaviour {
 
 
-    public GameObject curOwner;
-    GameObject[] players;
+	GameObject curOwner;
+	GameObject[] players;
 
-    int maxFollowers = 100;
-    int curFollowers = 100;
+	int maxFollowers = 100;
+	int curFollowers = 100;
 
-    [SerializeField]
-    Vector3 offset = new Vector3(0f, 2f, 0f);
-    bool isCaught = false;
-    [SerializeField]
-    private float forceMultiplier;
+	[SerializeField]
+	Vector3 offset = new Vector3 (0f, 2f, 0f);
+	bool isCaught = false;
+	[SerializeField]
+	private float forceMultiplier; 
 
-    Rigidbody myBody;
-    SphereCollider myCol;
+	Rigidbody myBody;
+	SphereCollider myCol;
 
     public GameObject ShockWavePrefab;
 
@@ -26,67 +25,68 @@ public class BallGrabber : MonoBehaviour
 
     private Renderer renderer;
 
-    // Use this for initialization
-    void Start()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
+	// Use this for initialization
+	void Start () {
+		players = GameObject.FindGameObjectsWithTag ("Player");
 
-        myBody = GetComponent<Rigidbody>();
-        myCol = GetComponent<SphereCollider>();
+		print (players [0]);
+		myBody = GetComponent<Rigidbody> ();
+		myCol = GetComponent<SphereCollider> ();
 
-        spawnZone = FindObjectOfType<SpawnZones>();
+	    spawnZone = FindObjectOfType<SpawnZones>();
 
-        renderer = GetComponent<Renderer>();
+	    renderer = GetComponent<Renderer>();
 
 
 
-    }
+	}
+	
+	// Update is called once per frame
+	void Update ()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (transform.position.y < spawnZone.transform.position.y + offset.y+1)
-        {
+	    if (transform.position.y < spawnZone.transform.position.y + offset.y)
+	    {
             BallReset();
-            transform.position = spawnZone.GetRandomBallSpawnZone();
-            print("reset");
+            transform.position = spawnZone.BallSpawnZone.position;
         }
 
         if (isCaught)
-        {
-            StayOnPlayer();
-        }
+		{
+			StayOnPlayer ();
+		}
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            print(curFollowers);
-            LoseFollowers();
-        }
+		if (Input.GetKeyDown(KeyCode.T))
+		{
+			print (curFollowers);
+			LoseFollowers ();
+		}
 
-    }
+	}
 
-    void StayOnPlayer()
-    {
-        transform.position = curOwner.transform.position + offset;
-    }
+	void StayOnPlayer()
+	{
+		transform.position = curOwner.transform.position + offset;
+		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
+	}
 
-    void SetCurOwner(int playerIndex)
-    {
-        curFollowers = maxFollowers;
+	void SetCurOwner(int playerIndex)
+	{
+		curFollowers = maxFollowers;
 
-        if (curOwner != null)
-            curOwner.GetComponent<PlayerControl>().SetHasBall(false);
+		if(curOwner != null)
+			curOwner.GetComponent<PlayerControl> ().SetHasBall (false);
+		
+		curOwner = GetPlayer(playerIndex);
+		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
 
-        curOwner = GetPlayer(playerIndex);
-        curOwner.GetComponent<PlayerControl>().SetHasBall(true);
-
-        ActivateForceField(curOwner.GetComponent<Rigidbody>());
-    }
+		ActivateForceField(curOwner.GetComponent<Rigidbody>());
+		Camera.main.GetComponent<CameraControl> ().ShakeScreen (Random.Range(0.2f, 0.4f));
+	}
 
     public float ForceFieldPower = 10f;
     public float ForceFieldRadius = 5;
-    private void ActivateForceField(Rigidbody playerBody)
+	private void ActivateForceField(Rigidbody playerBody)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, ForceFieldRadius);
         foreach (Collider hit in colliders)
@@ -96,64 +96,61 @@ public class BallGrabber : MonoBehaviour
 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
-            //print (playerBody);
+			//print (playerBody);
 
-            if (rb != null && rb != playerBody)
+			if (rb != null && rb != playerBody)
             {
                 Instantiate(ShockWavePrefab, transform.position, Quaternion.identity);
                 rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
-                Camera.main.GetComponent<CameraControl>().ShakeScreen(Random.Range(0.2f, 0.4f));
             }
         }
     }
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (!isCaught && other.transform.CompareTag("Player"))
-        {
-            isCaught = true;
-            myBody.isKinematic = true;
-            myCol.enabled = false;
-            SetCurOwner(other.transform.GetComponent<PlayerMovement>().playerNum);
+	void OnCollisionEnter(Collision other)
+	{
+		if (!isCaught && other.transform.CompareTag("Player"))
+		{
+			isCaught = true;
+			myBody.isKinematic = true;
+			myCol.enabled = false;
+			SetCurOwner(other.transform.GetComponent<PlayerMovement> ().playerNum);
 
-        }
-    }
+		}
+	}
 
-    GameObject GetPlayer(int playerIndex)
-    {
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (players[i].GetComponent<PlayerMovement>().playerNum == playerIndex)
-            {
-                return players[i];
-            }
-        }
+	GameObject GetPlayer(int playerIndex)
+	{
+		for (int i = 0; i < players.Length; i++)
+		{
+			if (players[i].GetComponent<PlayerMovement>().playerNum == playerIndex)
+			{
+				return players [i];
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 
 
-    public void LoseFollowers()
-    {
+	public void LoseFollowers()
+	{
+		myBody.isKinematic = false;
 
-        myBody.isKinematic = false;
+		// Get a pseudorandom direction above a certain threshold. Ssssssh gamejam code.. 
+		int rnd = Random.Range (0, 2);
+		if (rnd == 0)
+		{
+			myBody.AddForce ( new Vector3(Random.Range(0.6f, 1f), 1, Random.Range(0.6f, 1f)) * forceMultiplier * 100f);
+		} else
+		{
+			myBody.AddForce ( new Vector3(Random.Range(-0.6f, -1f), 1, Random.Range(-0.6f, -1f)) * forceMultiplier * 100f);
+		}
 
-        // Get a pseudorandom direction above a certain threshold. Ssssssh gamejam code.. 
-        int rnd = Random.Range(0, 2);
-        if (rnd == 0)
-        {
-            myBody.AddForce(new Vector3(Random.Range(0.6f, 1f), 1, Random.Range(0.6f, 1f)) * forceMultiplier * 100f);
-        }
-        else
-        {
-            myBody.AddForce(new Vector3(Random.Range(-0.6f, -1f), 1, Random.Range(-0.6f, -1f)) * forceMultiplier * 100f);
-        }
-
-        //myCol.enabled = true;
-        StartCoroutine(Cooldown());
-        curOwner = null;
-        isCaught = false;
-    }
+		//myCol.enabled = true;
+		StartCoroutine (Cooldown ());
+		curOwner = null;
+		isCaught = false; 
+	}
 
     private void BallReset()
     {
@@ -167,10 +164,10 @@ public class BallGrabber : MonoBehaviour
     }
 
     IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(0.4f);
-        myCol.enabled = true;
-    }
+	{
+		yield return new WaitForSeconds (0.4f);
+		myCol.enabled = true;
+	}
 
     IEnumerator BlinkRespawn(int count)
     {
