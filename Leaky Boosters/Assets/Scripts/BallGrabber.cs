@@ -5,8 +5,8 @@ using DG.Tweening;
 public class BallGrabber : MonoBehaviour {
 
 
-	GameObject curOwner;
-	GameObject[] players;
+	PlayerMovement curOwner;
+	//GameObject[] players;
 
 	int maxFollowers = 100;
 	int curFollowers = 100;
@@ -27,9 +27,9 @@ public class BallGrabber : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		players = GameObject.FindGameObjectsWithTag ("Player");
-
-		print (players [0]);
+//		players = GameObject.FindGameObjectsWithTag ("Player");
+//
+//		print (players [0]);
 		myBody = GetComponent<Rigidbody> ();
 		myCol = GetComponent<SphereCollider> ();
 
@@ -78,16 +78,16 @@ public class BallGrabber : MonoBehaviour {
 
 	}
 
-    void SetCurOwner(int playerIndex)
+	void SetCurOwner(PlayerMovement player)
 	{
 
 		curFollowers = maxFollowers;
 
 		if(curOwner != null)
-			curOwner.GetComponent<PlayerControl> ().SetHasBall (false);
+			curOwner.SetHasBall (false);
 		
-		curOwner = GetPlayer(playerIndex);
-		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
+		curOwner = player;
+		curOwner.SetHasBall (true);
 
 		ActivateForceField(curOwner.GetComponent<Rigidbody>());
 		StartCoroutine (Hover ());
@@ -126,20 +126,20 @@ public class BallGrabber : MonoBehaviour {
 			isCaught = true;
 			myBody.isKinematic = true;
 			myCol.enabled = false;
-			SetCurOwner(other.transform.GetComponent<PlayerMovement> ().playerNum);
+			SetCurOwner(other.transform.GetComponent<PlayerMovement> ());
 
 		}
 	}
 
 	GameObject GetPlayer(int playerIndex)
 	{
-		for (int i = 0; i < players.Length; i++)
-		{
-			if (players[i].GetComponent<PlayerMovement>().playerNum == playerIndex)
-			{
-				return players [i];
-			}
-		}
+//		for (int i = 0; i < players.Length; i++)
+//		{
+//			if (players[i].GetComponent<PlayerMovement>().playerNum == playerIndex)
+//			{
+//				return players [i];
+//			}
+//		}
 
 		return null;
 	}

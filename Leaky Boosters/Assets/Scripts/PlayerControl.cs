@@ -14,18 +14,8 @@ public class PlayerControl : MonoBehaviour {
 	}
 		
 
-	public void SetHasBall(bool aVal)
-	{
-		hasBall = aVal;
-	}
 
 	void OnCollisionEnter(Collision col)
 	{
-		if (hasBall && col.transform.CompareTag("Player"))
-		{
-			GameController.Instance.GetBall().GetComponent<BallGrabber>().LoseFollowers ();
-			hasBall = false;
-			//print ("Got hit");
-		}
 	}
 }

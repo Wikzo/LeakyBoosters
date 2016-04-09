@@ -13,10 +13,11 @@ public class GameController : MonoBehaviour {
 
 	void Awake()
 	{
-		if (Instance == null)
-			Instance = this;
-		else if (Instance != null)
-			Destroy (this.gameObject);
+		if (Instance != null){
+			Destroy (Instance.gameObject);
+		}
+		
+		Instance = this;
 
 		DontDestroyOnLoad (this);
 	}

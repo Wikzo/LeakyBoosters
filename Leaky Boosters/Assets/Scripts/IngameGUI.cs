@@ -22,6 +22,7 @@ public class IngameGUI : MonoBehaviour {
 	public PlayerPanel playerPanelPrefab;
 	public Transform startGamePanel;
 	public PlayerJoinPrompt[] playerJoinPrompts;
+	public GameObject endGameScreen;
 
 	public void CountdownNumber(int secondsLeft){
 		countdown.CrossFadeAlpha(0.5f,0,true);
@@ -34,7 +35,7 @@ public class IngameGUI : MonoBehaviour {
 		while(playerPanelContainer.childCount > 0){
 			Destroy(playerPanelContainer.GetChild(0).gameObject);
 		}
-		playerPanelContainer.gameObject.SetActive(true);
+		endGameScreen.SetActive(true);
 		for(int i = 0; i < GameController.playerCount; i++){
 			PlayerPanel newPanel = Instantiate(playerPanelPrefab) as PlayerPanel;
 			newPanel.Initialize(Mathf.FloorToInt(PlayerScores.GetScore(i)), GameController.Instance.activePlayers[i].playerColor);
@@ -53,6 +54,7 @@ public class IngameGUI : MonoBehaviour {
 		float secondsToStart = 3.9f;
 		countdown.text = Mathf.FloorToInt(secondsToStart).ToString();
 		startGamePanel.DOLocalMoveY(-640, 0.5f, true);
+		GameController.Instance.InstantiateGame(ActivePlayers());
 		while(secondsToStart > 0){
 			yield return null;
 			secondsToStart -= Time.deltaTime;
@@ -60,7 +62,6 @@ public class IngameGUI : MonoBehaviour {
 		}
 		countdown.text = "GO!";
 		countdown.CrossFadeAlpha(0,2f,true);
-		GameController.Instance.InstantiateGame(ActivePlayers());
 		SunGUI.gameOver = false;
 
 
@@ -95,7 +96,7 @@ public class IngameGUI : MonoBehaviour {
 		int activeCount = 0;
 		ArrayList listOfNumbers = new ArrayList();
 		for(int i = 0; i < playerJoinPrompts.Length; i++){
-			if(playerJoinPrompts[i].IsReady()){
+			if(playerJoinPrompts[i].ready){
 				activeCount++;
 				listOfNumbers.Add(playerJoinPrompts[i].playerNum);
 			}

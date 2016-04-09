@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // get input
         InputDevice inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
-        if (inputDevice == null) return;
+		if (inputDevice == null || SunGUI.gameOver) return;
 
         // set button state
         currentButtonState = inputDevice.Action1 ? ButtonStatus.Down : ButtonStatus.Up;
@@ -179,8 +179,13 @@ public class PlayerMovement : MonoBehaviour
             else return false;
         }
     }
-
+	bool hasBall;
+	public void SetHasBall(bool aVal)
+	{
+		hasBall = aVal;
+	}
     bool hitOncePrFrame = false;
+
 	void OnCollisionEnter(Collision collision){
 		Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();
 		if(other == null || hitOncePrFrame || !other.transform.CompareTag("Player")) return;
@@ -188,5 +193,12 @@ public class PlayerMovement : MonoBehaviour
 
 		float repulsePower = Mathf.Log10(Mathf.Max(1,collision.relativeVelocity.sqrMagnitude - other.velocity.sqrMagnitude));
 		other.AddExplosionForce(hitPower * repulsePower, transform.position, 5);
+
+		if (hasBall && collision.transform.CompareTag("Player"))
+		{
+			GameController.Instance.GetBall().GetComponent<BallGrabber>().LoseFollowers ();
+			hasBall = false;
+			//print ("Got hit");
+		}
 	}
 }

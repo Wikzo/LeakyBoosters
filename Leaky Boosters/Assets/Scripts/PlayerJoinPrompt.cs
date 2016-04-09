@@ -10,7 +10,7 @@ public class PlayerJoinPrompt : MonoBehaviour {
 	public Image background;
 
 	public bool active = false;
-	private bool ready = false;
+	public bool ready = false;
 
 	const string pressToJoin = "Press button to join!";
 	const string needMorePlayers = "Need more players...";
