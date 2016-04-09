@@ -11,15 +11,17 @@ public class IngameGUI : MonoBehaviour {
 
 	void Awake()
 	{
-		countdown.CrossFadeAlpha(0,0,true);
+		if (Instance != null)
+			Destroy (Instance.gameObject);
 		if (Instance == null)
 			Instance = this;
-		else if (Instance != null)
-			Destroy (this.gameObject);
+		countdown.CrossFadeAlpha(0,0,true);
 	}
 
 	public RectTransform playerPanelContainer;
 	public PlayerPanel playerPanelPrefab;
+	public Transform startGamePanel;
+	public PlayerJoinPrompt[] playerJoinPrompts;
 
 	public void CountdownNumber(int secondsLeft){
 		countdown.CrossFadeAlpha(0.5f,0,true);
@@ -40,5 +42,51 @@ public class IngameGUI : MonoBehaviour {
 			newPanel.transform.localScale = Vector3.one;
 
 		}
+	}
+
+	public void StartGame(){
+		StartCoroutine(StartGameCountDown());
+	}
+
+	IEnumerator StartGameCountDown(){
+		countdown.CrossFadeAlpha(1,0,true);
+		float secondsToStart = 3.9f;
+		countdown.text = Mathf.FloorToInt(secondsToStart).ToString();
+		startGamePanel.DOLocalMoveY(-640, 0.5f, true);
+		while(secondsToStart > 0){
+			yield return null;
+			secondsToStart -= Time.deltaTime;
+			countdown.text = Mathf.FloorToInt(secondsToStart).ToString();
+		}
+		countdown.text = "GO!";
+		countdown.CrossFadeAlpha(0,2f,true);
+		SunGUI.gameOver = false;
+
+
+	}
+
+	public bool EnoughJoined(){
+		int ready = 0;
+		for(int i = 0; i < playerJoinPrompts.Length; i++){
+			if(playerJoinPrompts[i].active){
+				ready++;
+			}
+		}
+		bool enoughReady = ready > 1;
+		for(int i = 0; i < playerJoinPrompts.Length; i++){
+			playerJoinPrompts[i].CheckPrompt(enoughReady);
+		}
+		return enoughReady;
+	}
+
+	public bool AllReady(){
+		for(int i = 0; i < playerJoinPrompts.Length; i++){
+			if(playerJoinPrompts[i].active){
+				if(!playerJoinPrompts[i].IsReady()){
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }

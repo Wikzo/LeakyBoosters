@@ -30,7 +30,7 @@ public class SunGUI : MonoBehaviour {
 
 	public float timeLimit = 120;
 	public float time;
-	bool gameOver = false;
+	public static bool gameOver = true;
 	int countdown = 9001;
 
 	void Awake()
@@ -41,7 +41,7 @@ public class SunGUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameOver = false;
+		gameOver = true;
 		initialAngle = sunSource.transform.eulerAngles.x;
 	}
 	

@@ -9,8 +9,7 @@ public class GameController : MonoBehaviour {
 	private BallGrabber ballGrabInstance;
 	public static int playerCount;
 	public PlayerMovement[] players;
-
-	int activePlayers; 
+	public PlayerMovement[] activePlayers;
 
 	void Awake()
 	{
