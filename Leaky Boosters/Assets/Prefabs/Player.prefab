@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2394670}
   m_Layer: 0
   m_Name: Cubething
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,6 +30,7 @@ GameObject:
   - 96: {fileID: 9690414}
   - 114: {fileID: 11411092}
   - 136: {fileID: 13670108}
+  - 114: {fileID: 11461120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -49,7 +50,7 @@ GameObject:
   - 23: {fileID: 2314372}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 1, z: -5.4}
+  m_LocalPosition: {x: -4.4, y: 1, z: -8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408698}
@@ -183,7 +184,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a563fb110b07e42ad9aeb697a8e15f3f, type: 2}
+  - {fileID: 2100000, guid: 8c785eafe31de67408e6b92dda228280, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -199,22 +200,22 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 0.5
-  m_StartWidth: 0.4
-  m_EndWidth: 0.1
+  m_Time: 1
+  m_StartWidth: 1
+  m_EndWidth: 0.25
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 16777215
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 2130771784
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4279041792
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 2130968320
     m_Color[4]:
       serializedVersion: 2
       rgba: 16777215
@@ -231,7 +232,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578f52c4f9a2e4495a73536680e12635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 1
+--- !u!114 &11461120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578f52c4f9a2e4495a73536680e12635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
 --- !u!114 &11463546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,11 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166614eddc6af4473804d0d67f178d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 1
   acceleration: 100
   forcemode: 2
   cubeRenderer: {fileID: 2394670}
-  playerColor: {r: 0, g: 1, b: 0.006896496, a: 1}
+  playerColor: {r: 1, g: 0.9724138, b: 0, a: 1}
   ChargingAdderPerSecond: 100
   chargingMultiplier: 0
   MaxCharging: 200
