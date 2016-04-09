@@ -109,7 +109,7 @@ public class BallGrabber : MonoBehaviour {
 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
-			//print (playerBody);
+			print (playerBody);
 
 			if (rb != null && rb != playerBody)
             {
