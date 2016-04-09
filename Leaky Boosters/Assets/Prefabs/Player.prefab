@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2394670}
   m_Layer: 0
   m_Name: Cubething
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,6 +30,7 @@ GameObject:
   - 96: {fileID: 9690414}
   - 114: {fileID: 11411092}
   - 136: {fileID: 13670108}
+  - 114: {fileID: 11461120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -49,7 +50,7 @@ GameObject:
   - 23: {fileID: 2314372}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +222,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
 --- !u!114 &11411092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578f52c4f9a2e4495a73536680e12635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
+--- !u!114 &11461120
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

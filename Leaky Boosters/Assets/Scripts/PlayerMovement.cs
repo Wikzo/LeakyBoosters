@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         if (rigidbody.velocity.y < -1 && !isGrounded)
         {
             rigidbody.AddForce(Vector3.down*3, ForceMode.Impulse);
-            print("adding velocity down");
+            //print("adding velocity down");
         }
 
         if (transform.position.y < killZone.position.y)
