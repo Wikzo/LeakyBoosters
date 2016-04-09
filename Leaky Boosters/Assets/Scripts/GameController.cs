@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour {
 	private GameObject ballObj;
 	private BallGrabber ballGrabInstance;
 
+	int activePlayers; 
+
 
 	void Awake()
 	{
