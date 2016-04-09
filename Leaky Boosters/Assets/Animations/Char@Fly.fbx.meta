@@ -1,0 +1,569 @@
+fileFormatVersion: 2
+guid: 3f5fc81cc40e6844abd086f2d6a34357
+timeCreated: 1460239721
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Curve_Grp
+    100004: FK_Rig
+    100006: Hips_Curve
+    100008: Hips_Curve_Grp
+    100010: polySurface8
+    100012: Qbe_Rig_Root
+    100014: Qbe_Skeleton_FK_Head
+    100016: Qbe_Skeleton_FK_Hips
+    100018: Qbe_Skeleton_FK_Neck
+    100020: Qbe_Skeleton_FK_Reference
+    100022: Qbe_Skeleton_FK_Spine
+    100024: Qbe_Skeleton_FK_Spine1
+    100026: Qbe_Skeleton_Real_LeftArm
+    100028: Qbe_Skeleton_Real_LeftFoot
+    100030: Qbe_Skeleton_Real_LeftForeArm
+    100032: Qbe_Skeleton_Real_LeftHand
+    100034: Qbe_Skeleton_Real_LeftLeg
+    100036: Qbe_Skeleton_Real_LeftToeBase
+    100038: Qbe_Skeleton_Real_LeftUpLeg
+    100040: Qbe_Skeleton_Real_RightArm1
+    100042: Qbe_Skeleton_Real_RightFoot1
+    100044: Qbe_Skeleton_Real_RightForeArm1
+    100046: Qbe_Skeleton_Real_RightHand1
+    100048: Qbe_Skeleton_Real_RightLeg1
+    100050: Qbe_Skeleton_Real_RightToeBase1
+    100052: Qbe_Skeleton_Real_RightUpLeg1
+    100054: Real_Skelton
+    100056: Reaper
+    100058: Reaper_Robe
+    100060: Reaper_Scythe
+    100062: Reaper_Skull
+    100064: Root_Curve
+    400000: //RootNode
+    400002: Curve_Grp
+    400004: FK_Rig
+    400006: Hips_Curve
+    400008: Hips_Curve_Grp
+    400010: polySurface8
+    400012: Qbe_Rig_Root
+    400014: Qbe_Skeleton_FK_Head
+    400016: Qbe_Skeleton_FK_Hips
+    400018: Qbe_Skeleton_FK_Neck
+    400020: Qbe_Skeleton_FK_Reference
+    400022: Qbe_Skeleton_FK_Spine
+    400024: Qbe_Skeleton_FK_Spine1
+    400026: Qbe_Skeleton_Real_LeftArm
+    400028: Qbe_Skeleton_Real_LeftFoot
+    400030: Qbe_Skeleton_Real_LeftForeArm
+    400032: Qbe_Skeleton_Real_LeftHand
+    400034: Qbe_Skeleton_Real_LeftLeg
+    400036: Qbe_Skeleton_Real_LeftToeBase
+    400038: Qbe_Skeleton_Real_LeftUpLeg
+    400040: Qbe_Skeleton_Real_RightArm1
+    400042: Qbe_Skeleton_Real_RightFoot1
+    400044: Qbe_Skeleton_Real_RightForeArm1
+    400046: Qbe_Skeleton_Real_RightHand1
+    400048: Qbe_Skeleton_Real_RightLeg1
+    400050: Qbe_Skeleton_Real_RightToeBase1
+    400052: Qbe_Skeleton_Real_RightUpLeg1
+    400054: Real_Skelton
+    400056: Reaper
+    400058: Reaper_Robe
+    400060: Reaper_Scythe
+    400062: Reaper_Skull
+    400064: Root_Curve
+    2300000: Reaper_Scythe
+    3300000: Reaper_Scythe
+    4300000: Reaper_Scythe
+    4300002: Reaper_Robe
+    4300004: Reaper_Skull
+    4300006: polySurface8
+    7400000: Fly
+    9500000: //RootNode
+    13700000: polySurface8
+    13700002: Reaper_Robe
+    13700004: Reaper_Skull
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Qbe_Rig_Root
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/FK_Rig
+        weight: 0
+      - path: Qbe_Rig_Root/Root_Curve/FK_Rig/Curve_Grp
+        weight: 0
+      - path: Qbe_Rig_Root/Root_Curve/FK_Rig/Curve_Grp/Hips_Curve_Grp
+        weight: 0
+      - path: Qbe_Rig_Root/Root_Curve/FK_Rig/Curve_Grp/Hips_Curve_Grp/Hips_Curve
+        weight: 0
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_FK_Neck
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_FK_Neck/Qbe_Skeleton_FK_Head
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_LeftArm
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_LeftArm/Qbe_Skeleton_Real_LeftForeArm
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_LeftArm/Qbe_Skeleton_Real_LeftForeArm/Qbe_Skeleton_Real_LeftHand
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_LeftArm/Qbe_Skeleton_Real_LeftForeArm/Qbe_Skeleton_Real_LeftHand/Reaper_Scythe
+        weight: 0
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_RightArm1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_RightArm1/Qbe_Skeleton_Real_RightForeArm1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_FK_Spine/Qbe_Skeleton_FK_Spine1/Qbe_Skeleton_Real_RightArm1/Qbe_Skeleton_Real_RightForeArm1/Qbe_Skeleton_Real_RightHand1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_LeftUpLeg
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_LeftUpLeg/Qbe_Skeleton_Real_LeftLeg
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_LeftUpLeg/Qbe_Skeleton_Real_LeftLeg/Qbe_Skeleton_Real_LeftFoot
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_LeftUpLeg/Qbe_Skeleton_Real_LeftLeg/Qbe_Skeleton_Real_LeftFoot/Qbe_Skeleton_Real_LeftToeBase
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_RightUpLeg1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_RightUpLeg1/Qbe_Skeleton_Real_RightLeg1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_RightUpLeg1/Qbe_Skeleton_Real_RightLeg1/Qbe_Skeleton_Real_RightFoot1
+        weight: 1
+      - path: Qbe_Rig_Root/Root_Curve/Real_Skelton/Qbe_Skeleton_FK_Reference/Qbe_Skeleton_FK_Hips/Qbe_Skeleton_Real_RightUpLeg1/Qbe_Skeleton_Real_RightLeg1/Qbe_Skeleton_Real_RightFoot1/Qbe_Skeleton_Real_RightToeBase1
+        weight: 1
+      - path: Reaper
+        weight: 0
+      - path: Reaper/polySurface8
+        weight: 0
+      - path: Reaper/Reaper_Robe
+        weight: 0
+      - path: Reaper/Reaper_Skull
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Qbe_Skeleton_FK_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightUpLeg1
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightLeg1
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightFoot1
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_FK_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_FK_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_FK_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_FK_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightArm1
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightForeArm1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightHand1
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Qbe_Skeleton_Real_RightToeBase1
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Char@Fly(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Rig_Root
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Root_Curve
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: FK_Rig
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Curve_Grp
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips_Curve_Grp
+      position: {x: -0, y: 0.49735796, z: -0.027573427}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips_Curve
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.618309, y: -0.057170317, z: -0.072169065, w: 0.78052366}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Real_Skelton
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Reference
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Hips
+      position: {x: 0, y: 0.51160836, z: -0.027573427}
+      rotation: {x: -2.3238819e-17, y: 0.0000000043424357, z: -0.000000001009094,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Spine
+      position: {x: -0, y: 0.11089933, z: -0.031249885}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Spine1
+      position: {x: -0, y: 0.22008911, z: -0.04667099}
+      rotation: {x: -0.00000004656613, y: -0.0000000072528197, z: 0.000000006829861,
+        w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Neck
+      position: {x: 3.330669e-17, y: 0.1402323, z: 0.012867599}
+      rotation: {x: 0.000000034924597, y: 1.4508522e-15, z: -0.0000000069121606, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_FK_Head
+      position: {x: -0, y: 0.27122235, z: 0}
+      rotation: {x: 1.7763568e-15, y: 5.7902643e-24, z: -3.330669e-16, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftArm
+      position: {x: -0.12572734, y: 0.09432106, z: 0.023636155}
+      rotation: {x: 0.00000004656613, y: -0.000000049476512, z: 0.000000017462296,
+        w: 1}
+      scale: {x: 1, y: 0.99999976, z: 1.0000001}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftForeArm
+      position: {x: -0.22278826, y: -6.3948843e-16, z: 0.0070268614}
+      rotation: {x: -0.0000000026248252, y: -0.056367695, z: -1.6942856e-15, w: 0.9984101}
+      scale: {x: 1, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftHand
+      position: {x: -0.23122245, y: 0, z: 0.044594064}
+      rotation: {x: 0.06141305, y: 0.000000035823014, z: 0.31842992, w: 0.94595504}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.99999976}
+      transformModified: 1
+    - name: Reaper_Scythe
+      position: {x: -0.18094482, y: 0.19579165, z: 0.075401135}
+      rotation: {x: -0.0023721647, y: -3.3413957e-18, z: 0.00026971466, w: 0.99999714}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightArm1
+      position: {x: 0.1257273, y: 0.09432062, z: 0.023636159}
+      rotation: {x: 1, y: -0.0000000174623, z: 0.000000020372681, w: -0.000000023283063}
+      scale: {x: 1, y: 0.99999976, z: 1.0000002}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightForeArm1
+      position: {x: 0.2227887, y: -1.0658141e-16, z: -0.00702684}
+      rotation: {x: -0.0000000013124193, y: -0.056368012, z: -0.0000000026248408,
+        w: 0.9984101}
+      scale: {x: 1.0000001, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightHand1
+      position: {x: 0.231222, y: 0, z: -0.044594068}
+      rotation: {x: 0.000000023283066, y: -0.000000034924597, z: -0.000000011641532,
+        w: 1}
+      scale: {x: 1, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightUpLeg1
+      position: {x: 0.082229994, y: -0.02234694, z: 0.033800375}
+      rotation: {x: 1, y: 0.0000000011144903, z: 0.000000010584819, w: -0.0000000014551917}
+      scale: {x: 1, y: 1.0000002, z: 1.0000004}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightLeg1
+      position: {x: 0.0303645, y: 0.28109637, z: -0.020655777}
+      rotation: {x: 0.000000010186342, y: -0.000000012970268, z: -0.0000000054354934,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightFoot1
+      position: {x: 0.0177129, y: 0.19391459, z: 0.095767826}
+      rotation: {x: -0.000000034924597, y: 0.0000000087776115, z: 0.0000000010588392,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_RightToeBase1
+      position: {x: 5.3290704e-17, y: 0.000000015462371, z: -0.13910174}
+      rotation: {x: -1.7763567e-15, y: -4.440892e-16, z: 0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftUpLeg
+      position: {x: -0.082229994, y: -0.022346422, z: 0.03380038}
+      rotation: {x: -0.000000023283064, y: 0.000000009107444, z: 0.0000000019961346,
+        w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftLeg
+      position: {x: -0.03036464, y: -0.28109697, z: 0.020655788}
+      rotation: {x: 0.000000011641534, y: -0.000000017404648, z: 0.000000003795198,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftFoot
+      position: {x: -0.017712709, y: -0.19391456, z: -0.09576774}
+      rotation: {x: -3.5861588e-15, y: 0.0000000013944883, z: -0.000000010143202,
+        w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+      transformModified: 1
+    - name: Qbe_Skeleton_Real_LeftToeBase
+      position: {x: -0.00000005384023, y: 4.2632563e-16, z: 0.13910188}
+      rotation: {x: -8.271806e-25, y: 6.617445e-24, z: -4.440892e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Reaper
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: polySurface8
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Reaper_Robe
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Reaper_Skull
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
