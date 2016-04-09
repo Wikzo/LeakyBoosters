@@ -37,7 +37,7 @@ public class BallGrabber : MonoBehaviour {
 
 	    renderer = GetComponent<Renderer>();
 
-        offset = new Vector3(0,transform.localScale.y / 2,0);
+        offset = new Vector3(0,transform.localScale.y / 2 + 1.5f,0);
 
 
 
@@ -80,6 +80,7 @@ public class BallGrabber : MonoBehaviour {
 
     void SetCurOwner(int playerIndex)
 	{
+
 		curFollowers = maxFollowers;
 
 		if(curOwner != null)
@@ -89,6 +90,8 @@ public class BallGrabber : MonoBehaviour {
 		curOwner.GetComponent<PlayerControl> ().SetHasBall (true);
 
 		ActivateForceField(curOwner.GetComponent<Rigidbody>());
+		StartCoroutine (Hover ());
+
 	}
 
     public float ForceFieldPower = 10f;
@@ -113,6 +116,7 @@ public class BallGrabber : MonoBehaviour {
 				rb.AddExplosionForce(ForceFieldPower, transform.position, ForceFieldRadius, 2);
             }
         }
+
     }
 
 	void OnCollisionEnter(Collision other)
@@ -144,6 +148,7 @@ public class BallGrabber : MonoBehaviour {
 	public void LoseFollowers()
 	{
 		myBody.isKinematic = false;
+		//StopCoroutine (Hover ());
 
 		// Get a pseudorandom direction above a certain threshold. Ssssssh gamejam code.. 
 		int rnd = Random.Range (0, 2);
@@ -188,4 +193,41 @@ public class BallGrabber : MonoBehaviour {
         else
             renderer.enabled = true;
     }
+
+	IEnumerator Hover()
+	{
+		
+		// (cos((x + 1) * PI) / 2.0) + 0.5 //Accelerate/Deccelarate
+		while(isCaught)
+		{
+			float t = 0f;
+			Vector3 tmp = Vector3.zero;
+
+			
+			while(t < 1f)
+			{
+				if (!isCaught)
+					break;
+
+				t += 0.5f * Time.deltaTime;
+				tmp.y = (Mathf.Cos (t + 1) * Mathf.PI) / 2f + 0.5f;
+				transform.position -= tmp;
+				yield return null;
+			}
+
+			t = 1f;
+
+			while(t > 0f)
+			{
+				if (!isCaught)
+					break;
+				
+				t -= 0.5f * Time.deltaTime;
+				tmp.y = (Mathf.Cos (t + 1) * Mathf.PI) / 2f + 0.5f;
+				transform.position -= tmp;
+				yield return null;
+			}
+
+		}
+	}
 }
