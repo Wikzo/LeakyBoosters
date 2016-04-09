@@ -130,7 +130,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -172,7 +172,7 @@ MonoBehaviour:
   sunSource: {fileID: 10841218}
   starPrefab: {fileID: 101562, guid: abb153e28fdb44609a2df469631b66b0, type: 2}
   starCanvas: {fileID: 22323184}
-  timeLimit: 120
+  timeLimit: 20
   time: 0
 --- !u!114 &11459570
 MonoBehaviour:

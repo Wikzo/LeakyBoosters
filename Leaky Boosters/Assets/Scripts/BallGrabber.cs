@@ -67,7 +67,7 @@ public class BallGrabber : MonoBehaviour {
 	void StayOnPlayer()
 	{
 		transform.position = curOwner.transform.position + offset;
-		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.time));
+		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.deltaTime));
 	}
 
 	void SetCurOwner(int playerIndex)

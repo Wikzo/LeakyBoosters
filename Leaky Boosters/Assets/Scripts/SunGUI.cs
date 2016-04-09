@@ -31,6 +31,7 @@ public class SunGUI : MonoBehaviour {
 	public float timeLimit = 120;
 	public float time;
 	bool gameOver = false;
+	int countdown = 9001;
 
 	void Awake()
 	{
@@ -59,6 +60,11 @@ public class SunGUI : MonoBehaviour {
 		if(gameProgress >= 1 && !gameOver){
 			gameOver = true;
 			IngameGUI.Instance.ShowFinalScreen();
+		}
+		int secondsLeft = Mathf.FloorToInt(timeLimit - time);
+		if(secondsLeft > 0 && secondsLeft < 11 && countdown > secondsLeft ){
+			countdown = secondsLeft;
+			IngameGUI.Instance.CountdownNumber(countdown);
 		}
 	}
 
