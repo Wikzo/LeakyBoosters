@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
 	public SpriteRenderer colorSprite;
 
-
     private SpawnZones spawnZones;
     private Transform killZone;
 
@@ -55,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         spawnZones = FindObjectOfType<SpawnZones>();
         killZone = spawnZones.transform;
 		colorSprite.color = playerColor;
+		cubeRenderer.material.color = playerColor;
     }
 
     void Update()

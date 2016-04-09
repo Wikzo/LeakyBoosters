@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 	private GameObject ballObj;
 	private BallGrabber ballGrabInstance;
 	public static int playerCount;
+	public PlayerMovement[] players;
 
 	int activePlayers; 
 
