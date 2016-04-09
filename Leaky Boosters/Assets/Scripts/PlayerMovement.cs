@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using InControl;
+using UnityEngine.SceneManagement;
 
 public enum ButtonStatus
 {
@@ -16,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public ForceMode forcemode;
     Rigidbody rigidbody;
 
-    private Renderer cubeRenderer;
-
+    public Renderer cubeRenderer;
+	public Color playerColor;
 
     private ButtonStatus lastButtonState;
     private ButtonStatus currentButtonState;
@@ -30,11 +31,13 @@ public class PlayerMovement : MonoBehaviour
     public float ChargeScaleDownTime = 0.5f;
     public Vector3 MaxChargeScale = new Vector3(3,3,3);
 
+	public float hitPower = 10;
+
+	public float jumpPower = 2;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-
-        cubeRenderer = GetComponent<Renderer>();
 
     }
 
@@ -52,9 +55,7 @@ public class PlayerMovement : MonoBehaviour
             acceleration * Time.deltaTime * inputDevice.LeftStickY);
 
         if (direction != Vector3.zero)
-            transform.forward = direction;
-        else
-            transform.forward = Vector3.up;
+			transform.LookAt(transform.position + direction);
 
         // charging
         if (currentButtonState == ButtonStatus.Down)
@@ -65,26 +66,27 @@ public class PlayerMovement : MonoBehaviour
 
             chargingMultiplier = Mathf.Min(chargingMultiplier, MaxCharging);
 
-            transform.localScale = Vector3.Lerp(transform.localScale, MaxChargeScale, Time.deltaTime* ChargeScaleUpTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, MaxChargeScale, Time.deltaTime * ChargeScaleUpTime);
 
         }
         // shooting
         else if (currentButtonState == ButtonStatus.Up && lastButtonState == ButtonStatus.Down)
-        {
+		{
             // shoot
             if (direction != Vector3.zero)
                 rigidbody.AddForce(transform.forward * chargingMultiplier, forcemode);
             // jump
-            else
-                rigidbody.AddForce(transform.up * chargingMultiplier * 0.5f, forcemode);
+			else{
+				//rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
+			}
 
-            chargingMultiplier = 0;
 
+			chargingMultiplier = 0;
         }
         // idle
         else
         {
-            cubeRenderer.material.color = Color.green;
+			cubeRenderer.material.color = playerColor;
 
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * ChargeScaleDownTime);
 
@@ -99,4 +101,18 @@ public class PlayerMovement : MonoBehaviour
         lastButtonState = currentButtonState;
 
     }
+
+	void FixedUpdate(){
+		hitOncePrFrame = false;
+	}
+
+	bool hitOncePrFrame = false;
+	void OnCollisionEnter(Collision collision){
+		Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();
+		if(other == null || hitOncePrFrame) return;
+		hitOncePrFrame = true;
+
+		float repulsePower = Mathf.Log10(Mathf.Max(1,collision.relativeVelocity.sqrMagnitude - other.velocity.sqrMagnitude));
+		other.AddExplosionForce(hitPower * repulsePower, transform.position, 5);
+	}
 }
