@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class SpawnZones : MonoBehaviour
 {
     public List<Transform> SpawnZoneTransforms;
+    public Transform BallSpawnZone;
 
     public Vector3 GetRandomSpawnZone()
     {
