@@ -21,6 +21,10 @@ public class BallGrabber : MonoBehaviour {
 
     public GameObject ShockWavePrefab;
 
+    private SpawnZones spawnZone;
+
+    private Renderer renderer;
+
 	// Use this for initialization
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -29,11 +33,23 @@ public class BallGrabber : MonoBehaviour {
 		myBody = GetComponent<Rigidbody> ();
 		myCol = GetComponent<SphereCollider> ();
 
+	    spawnZone = FindObjectOfType<SpawnZones>();
+
+	    renderer = GetComponent<Renderer>();
+
+
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+
+	    if (transform.position.y < spawnZone.transform.position.y + offset.y)
+	    {
+            BallReset();
+            transform.position = spawnZone.BallSpawnZone.position;
+        }
 
         if (isCaught)
 		{
@@ -51,6 +67,7 @@ public class BallGrabber : MonoBehaviour {
 	void StayOnPlayer()
 	{
 		transform.position = curOwner.transform.position + offset;
+		PlayerScores.AddScore(curOwner.GetComponent<PlayerMovement>().playerNum, Mathf.FloorToInt(Time.deltaTime));
 	}
 
 	void SetCurOwner(int playerIndex)
@@ -135,9 +152,31 @@ public class BallGrabber : MonoBehaviour {
 		isCaught = false; 
 	}
 
-	IEnumerator Cooldown()
+    private void BallReset()
+    {
+        myCol.enabled = true;
+        curOwner = null;
+        isCaught = false;
+        myBody.isKinematic = true;
+
+        StartCoroutine(BlinkRespawn(6));
+
+    }
+
+    IEnumerator Cooldown()
 	{
 		yield return new WaitForSeconds (0.4f);
 		myCol.enabled = true;
 	}
+
+    IEnumerator BlinkRespawn(int count)
+    {
+        renderer.enabled = !renderer.enabled;
+        yield return new WaitForSeconds(0.2f);
+
+        if (count - 1 > 0)
+            StartCoroutine(BlinkRespawn(count - 1));
+        else
+            renderer.enabled = true;
+    }
 }
