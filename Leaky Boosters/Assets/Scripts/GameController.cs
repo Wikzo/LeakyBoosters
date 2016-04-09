@@ -23,17 +23,21 @@ public class GameController : MonoBehaviour {
 		
 	void Start()
 	{
-		InstantiateGame(4);
 		if (ballObj == null)
 			ballObj = GameObject.FindGameObjectWithTag ("Ball");
 
 		ballGrabInstance = ballObj.GetComponent<BallGrabber> ();
 	}
 
-	void InstantiateGame(int count){
-		playerCount = count;
-		PlayerScores.Initialize(count);
-		SunGUI.instance.InstantiateStars(count);
+	public void InstantiateGame(int[] playerNums){
+		playerCount = playerNums.Length;
+		activePlayers = new PlayerMovement[playerCount];
+		for(int i = 0; i < playerCount; i++){
+			activePlayers[i] = players[playerNums[i]];
+			activePlayers[i].gameObject.SetActive(true);
+		}
+		PlayerScores.Initialize(playerCount);
+		SunGUI.instance.InstantiateStars(playerCount);
 	}
 	
 	// Update is called once per frame
@@ -56,7 +60,6 @@ public class GameController : MonoBehaviour {
 	public void RestartLevel()
 	{
 		SceneManager.LoadScene (0);
-		Start ();
 	}
 
 	public GameObject GetBall()
