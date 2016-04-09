@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public ForceMode forcemode;
     Rigidbody rigidbody;
 
-    public Renderer cubeRenderer;
+    //public Renderer cubeRenderer;
 	public Color playerColor;
 
     private ButtonStatus lastButtonState;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         spawnZones = FindObjectOfType<SpawnZones>();
         killZone = spawnZones.transform;
 		colorSprite.color = playerColor;
-		cubeRenderer.material.color = playerColor;
+		//cubeRenderer.material.color = playerColor;
     }
 
     void Update()
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         // charging
         if (currentButtonState == ButtonStatus.Down)
         {
-            cubeRenderer.material.color = Color.red;
+           // cubeRenderer.material.color = Color.red;
 
             chargingMultiplier += Time.deltaTime * ChargingAdderPerSecond;
 
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         // idle
         else
         {
-			cubeRenderer.material.color = playerColor;
+			//cubeRenderer.material.color = playerColor;
 
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * ChargeScaleDownTime);
 
@@ -151,13 +151,13 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator BlinkRespawn(int count)
     {
-        cubeRenderer.enabled = !cubeRenderer.enabled;
+      //  cubeRenderer.enabled = !cubeRenderer.enabled;
         yield return new WaitForSeconds(0.2f);
 
         if (count - 1 > 0)
             StartCoroutine(BlinkRespawn(count - 1));
-        else
-            cubeRenderer.enabled = true;
+		/* else
+            cubeRenderer.enabled = true;*/
     }
 
     public bool isGrounded

@@ -8,7 +8,6 @@ public class PlayerControl : MonoBehaviour {
 
 	private bool hasBall = false;
 
-
 	public int GetPlayerIndex()
 	{
 		return playerIndex;
