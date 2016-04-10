@@ -185,7 +185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b56430c10f1b4e4889d793b50dbb19a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.9443591
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b56430c10f1b4e4889d793b50dbb19a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -193,7 +193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b56430c10f1b4e4889d793b50dbb19a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.3289163
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b56430c10f1b4e4889d793b50dbb19a, type: 3}
       propertyPath: m_RootOrder
@@ -375,8 +375,7 @@ Prefab:
       propertyPath: CollisionModule.plane0
       value: 
       objectReference: {fileID: 28278149}
-    m_RemovedComponents:
-    - {fileID: 11451014, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1041119495

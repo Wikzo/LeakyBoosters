@@ -1329,7 +1329,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -1398,7 +1398,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 2.1
+      scalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1433,7 +1433,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 26.3
+      scalar: 21.530125
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1562,7 +1562,7 @@ ParticleSystem:
         rgba: 4283534335
       minMaxState: 2
     startSize:
-      scalar: 1
+      scalar: 1.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1571,14 +1571,9 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1587,15 +1582,10 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
-      minMaxState: 0
+        m_RotationOrder: 0
+      minMaxState: 3
     startRotationX:
       scalar: 0
       maxCurve:
@@ -3372,6 +3362,10 @@ Prefab:
       objectReference: {fileID: 12800000, guid: 0410ad49c91d744308a3357425d86f3a,
         type: 3}
     - target: {fileID: 177658, guid: 60f20dbbecfe442e29838024d59ff59d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 152742, guid: 60f20dbbecfe442e29838024d59ff59d, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
