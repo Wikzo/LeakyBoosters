@@ -9,6 +9,7 @@ public class PlayerPanel : MonoBehaviour {
 	public Text scoreText;
 	int targetScore;
 	float fillSpeed;
+	public Image winner;
 
 	public void Initialize(int score, Color player){
 		playerColor.color = player;
@@ -31,6 +32,7 @@ public class PlayerPanel : MonoBehaviour {
 			shownScore += targetScore * Time.deltaTime;
 			scoreText.text = Mathf.FloorToInt(shownScore).ToString("000000");
 		}
+		if(targetScore == maxScore) winner.gameObject.SetActive(true);
 		fill.fillAmount = targetFill;
 		scoreText.text = targetScore.ToString("000000");
 	}
