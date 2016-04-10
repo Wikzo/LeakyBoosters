@@ -32,10 +32,13 @@ public class AnimationControl : MonoBehaviour {
 
 		fly = myMove.IsCharging;
 
+		
 		controller.SetFloat ("speed", speed);
 		controller.SetFloat ("speedMult", Mathf.Clamp (speed, 0f, 1f));
 		controller.SetBool ("isCharging", isCharging);
 		controller.SetBool ("fly", fly);
 
 	}
+
+
 }
