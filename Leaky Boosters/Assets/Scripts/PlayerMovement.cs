@@ -73,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // get input
         InputDevice inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
-		if (inputDevice == null || SunGUI.gameOver) return;
-
+		if (inputDevice == null)
+			return;
         // set button state
         currentButtonState = inputDevice.Action1 ? ButtonStatus.Down : ButtonStatus.Up;
 
@@ -84,9 +84,9 @@ public class PlayerMovement : MonoBehaviour
 
 		if (direction != Vector3.zero){
 			transform.LookAt(transform.position + direction);
-		} else {
-			//transform.LookAt(transform.position + Vector3.up);
-		}
+		} 
+
+		if (SunGUI.gameOver) return;
 
         // charging
         if (currentButtonState == ButtonStatus.Down)
@@ -168,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			Respawn();
 			Camera.main.GetComponent<CameraControl>().ShakeScreen(Random.Range(0.2f, 0.4f));
+	
 		}
 
     }
