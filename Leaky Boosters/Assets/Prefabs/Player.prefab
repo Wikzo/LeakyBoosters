@@ -1232,6 +1232,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 02bada895dd5fee4eae337b6eab0ac28, type: 3}
   - {fileID: 8300000, guid: 8225077afd628ef4cac438d1e0b644e4, type: 3}
   - {fileID: 8300000, guid: 0be47fbd79323a1419814c3d480f2cca, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: d2b3b661d85644a8281ccba447fd08b1, type: 3}
+  - {fileID: 8300000, guid: a28e1771e81c14dcf899094f026b22b7, type: 3}
+  - {fileID: 8300000, guid: f18b49b3a229940ca93f71536a4d629c, type: 3}
+  - {fileID: 8300000, guid: 3cdcee3424e504248813feb543aff53e, type: 3}
+  - {fileID: 8300000, guid: 5178e2749f5b5440aaec89593367ed8e, type: 3}
+  - {fileID: 8300000, guid: 8efc0186264974a15b850c298302f3c2, type: 3}
+  - {fileID: 8300000, guid: 20f6560c8de25413f9a6f7e658f354c9, type: 3}
+  - {fileID: 8300000, guid: 51a88c8e452ee476a921d138742687b1, type: 3}
+  - {fileID: 8300000, guid: 210b29aeb2a134c7fa8a67b9b21b69be, type: 3}
+  - {fileID: 8300000, guid: 4c87668f8442e412f95b8073fdb1021d, type: 3}
 --- !u!136 &13670108
 CapsuleCollider:
   m_ObjectHideFlags: 1

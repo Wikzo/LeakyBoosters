@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private AudioSource audioSource;
     public List<AudioClip> ShootSounds;
+	public List<AudioClip> hitSounds;
 
     void Start()
     {
@@ -164,7 +165,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (transform.position.y < killZone.position.y - 10)
-            Respawn();
+		{
+			Respawn();
+			Camera.main.GetComponent<CameraControl>().ShakeScreen(Random.Range(0.2f, 0.4f));
+		}
 
     }
 
@@ -176,6 +180,15 @@ public class PlayerMovement : MonoBehaviour
         audioSource.pitch += Time.deltaTime*0.5f;
         audioSource.pitch = Mathf.Min(audioSource.pitch, 3);
     }
+
+/*	private void PlayHitSound()
+	{
+		if (!audioSource.isPlaying)
+			audioSource.Play();
+
+		audioSource.pitch += Time.deltaTime*0.5f;
+		audioSource.pitch = Mathf.Min(audioSource.pitch, 3);
+	}*/
 
     private void StopChargeSound()
     {
@@ -243,6 +256,9 @@ public class PlayerMovement : MonoBehaviour
 
 		float repulsePower = Mathf.Log10(Mathf.Max(1,collision.relativeVelocity.sqrMagnitude - other.velocity.sqrMagnitude));
 		other.AddExplosionForce(hitPower * repulsePower, transform.position, 5);
+
+		audioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Count)]);
+
 
 		if (hasBall && collision.transform.CompareTag("Player"))
 		{
