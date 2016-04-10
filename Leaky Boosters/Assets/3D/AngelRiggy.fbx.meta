@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: d269f3d4d9027f0498e75f777f79022e
+timeCreated: 1460274679
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Angel
+    100002: AngelHead
+    100004: //RootNode
+    100006: Angels
+    100008: AngelSword
+    100010: Curve_Grp
+    100012: FK_Rig
+    100014: Hips_Curve
+    100016: Hips_Curve_Grp
+    100018: Qbe_Rig_Root
+    100020: Qbe_Skeleton_FK_Head
+    100022: Qbe_Skeleton_FK_Hips
+    100024: Qbe_Skeleton_FK_Neck
+    100026: Qbe_Skeleton_FK_Reference
+    100028: Qbe_Skeleton_FK_Spine
+    100030: Qbe_Skeleton_FK_Spine1
+    100032: Qbe_Skeleton_Real_LeftArm
+    100034: Qbe_Skeleton_Real_LeftFoot
+    100036: Qbe_Skeleton_Real_LeftForeArm
+    100038: Qbe_Skeleton_Real_LeftHand
+    100040: Qbe_Skeleton_Real_LeftLeg
+    100042: Qbe_Skeleton_Real_LeftToeBase
+    100044: Qbe_Skeleton_Real_LeftUpLeg
+    100046: Qbe_Skeleton_Real_RightArm1
+    100048: Qbe_Skeleton_Real_RightFoot1
+    100050: Qbe_Skeleton_Real_RightForeArm1
+    100052: Qbe_Skeleton_Real_RightHand1
+    100054: Qbe_Skeleton_Real_RightLeg1
+    100056: Qbe_Skeleton_Real_RightToeBase1
+    100058: Qbe_Skeleton_Real_RightUpLeg1
+    100060: Real_Skelton
+    100062: Root_Curve
+    400000: Angel
+    400002: AngelHead
+    400004: //RootNode
+    400006: Angels
+    400008: AngelSword
+    400010: Curve_Grp
+    400012: FK_Rig
+    400014: Hips_Curve
+    400016: Hips_Curve_Grp
+    400018: Qbe_Rig_Root
+    400020: Qbe_Skeleton_FK_Head
+    400022: Qbe_Skeleton_FK_Hips
+    400024: Qbe_Skeleton_FK_Neck
+    400026: Qbe_Skeleton_FK_Reference
+    400028: Qbe_Skeleton_FK_Spine
+    400030: Qbe_Skeleton_FK_Spine1
+    400032: Qbe_Skeleton_Real_LeftArm
+    400034: Qbe_Skeleton_Real_LeftFoot
+    400036: Qbe_Skeleton_Real_LeftForeArm
+    400038: Qbe_Skeleton_Real_LeftHand
+    400040: Qbe_Skeleton_Real_LeftLeg
+    400042: Qbe_Skeleton_Real_LeftToeBase
+    400044: Qbe_Skeleton_Real_LeftUpLeg
+    400046: Qbe_Skeleton_Real_RightArm1
+    400048: Qbe_Skeleton_Real_RightFoot1
+    400050: Qbe_Skeleton_Real_RightForeArm1
+    400052: Qbe_Skeleton_Real_RightHand1
+    400054: Qbe_Skeleton_Real_RightLeg1
+    400056: Qbe_Skeleton_Real_RightToeBase1
+    400058: Qbe_Skeleton_Real_RightUpLeg1
+    400060: Real_Skelton
+    400062: Root_Curve
+    2300000: AngelSword
+    3300000: AngelSword
+    4300000: AngelSword
+    4300002: Angel
+    4300004: AngelHead
+    9500000: //RootNode
+    13700000: Angel
+    13700002: AngelHead
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
