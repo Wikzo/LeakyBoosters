@@ -165,7 +165,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (transform.position.y < killZone.position.y - 10)
-            Respawn();
+		{
+			Respawn();
+			Camera.main.GetComponent<CameraControl>().ShakeScreen(Random.Range(0.2f, 0.4f));
+		}
 
     }
 
