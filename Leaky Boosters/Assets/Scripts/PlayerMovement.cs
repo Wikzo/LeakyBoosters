@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private AudioSource audioSource;
     public List<AudioClip> ShootSounds;
+	public List<AudioClip> hitSounds;
 
     void Start()
     {
@@ -177,6 +178,15 @@ public class PlayerMovement : MonoBehaviour
         audioSource.pitch = Mathf.Min(audioSource.pitch, 3);
     }
 
+/*	private void PlayHitSound()
+	{
+		if (!audioSource.isPlaying)
+			audioSource.Play();
+
+		audioSource.pitch += Time.deltaTime*0.5f;
+		audioSource.pitch = Mathf.Min(audioSource.pitch, 3);
+	}*/
+
     private void StopChargeSound()
     {
         if (!audioSource.isPlaying)
@@ -243,6 +253,9 @@ public class PlayerMovement : MonoBehaviour
 
 		float repulsePower = Mathf.Log10(Mathf.Max(1,collision.relativeVelocity.sqrMagnitude - other.velocity.sqrMagnitude));
 		other.AddExplosionForce(hitPower * repulsePower, transform.position, 5);
+
+		audioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Count)]);
+
 
 		if (hasBall && collision.transform.CompareTag("Player"))
 		{
