@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour {
 
 	public void RestartLevel()
 	{
-		SceneManager.LoadScene (0);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public BallGrabber GetBallGrabber()
