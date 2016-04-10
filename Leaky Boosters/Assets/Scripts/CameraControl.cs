@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour {
 
     public List<AudioClip> ScreenShakeSounds;
     private AudioSource audioSource;
-	GameObject[] playerObjs;
+	PlayerMovement[] playerObjs;
 	//float[] xValues;
 	//float[] zValues;
 	//float maxX = 3f;
@@ -36,7 +36,7 @@ public class CameraControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		playerObjs = GameObject.FindGameObjectsWithTag ("Player");
+		//playerObjs = GameObject.FindGameObjectsWithTag ("Player");
 /*		xValues = new float[playerObjs.Length];
 		zValues = new float[playerObjs.Length];
 
@@ -150,7 +150,7 @@ public class CameraControl : MonoBehaviour {
 		}*/
 
 		Vector3 result = Vector3.zero;
-
+		playerObjs = GameController.Instance.activePlayers;
 		for (int i = 0; i < playerObjs.Length; i++)
 		{
 			result += playerObjs [i].transform.position; 

@@ -961,7 +961,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165560}
-  m_LocalRotation: {x: -0.0023721647, y: -3.3413957e-18, z: 0.00026971466, w: 0.99999714}
+  m_LocalRotation: {x: -0.001173155, y: -0.9209107, z: -0.002080017, w: 0.38976634}
   m_LocalPosition: {x: -0.18094482, y: 0.19579165, z: 0.075401135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1216,13 +1216,13 @@ MonoBehaviour:
   playerNum: 0
   acceleration: 100
   forcemode: 2
-  playerColor: {r: 0.986207, g: 0, b: 1, a: 1}
+  playerColor: {r: 0, g: 0, b: 0.08965516, a: 0.6901961}
   ChargingAdderPerSecond: 100
   chargingMultiplier: 0
   MaxCharging: 200
   ChargeScaleUpTime: 2
-  ChargeScaleDownTime: 0.5
-  MaxChargeScale: {x: 2.4, y: 2.4, z: 2.4}
+  ChargeScaleDownTime: 5
+  MaxChargeScale: {x: 2, y: 2, z: 2}
   hitPower: 500
   jumpPower: 1
   colorSprite: {fileID: 21274472}
@@ -1233,16 +1233,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8225077afd628ef4cac438d1e0b644e4, type: 3}
   - {fileID: 8300000, guid: 0be47fbd79323a1419814c3d480f2cca, type: 3}
   hitSounds:
-  - {fileID: 8300000, guid: d2b3b661d85644a8281ccba447fd08b1, type: 3}
-  - {fileID: 8300000, guid: a28e1771e81c14dcf899094f026b22b7, type: 3}
-  - {fileID: 8300000, guid: f18b49b3a229940ca93f71536a4d629c, type: 3}
-  - {fileID: 8300000, guid: 3cdcee3424e504248813feb543aff53e, type: 3}
-  - {fileID: 8300000, guid: 5178e2749f5b5440aaec89593367ed8e, type: 3}
-  - {fileID: 8300000, guid: 8efc0186264974a15b850c298302f3c2, type: 3}
-  - {fileID: 8300000, guid: 20f6560c8de25413f9a6f7e658f354c9, type: 3}
-  - {fileID: 8300000, guid: 51a88c8e452ee476a921d138742687b1, type: 3}
-  - {fileID: 8300000, guid: 210b29aeb2a134c7fa8a67b9b21b69be, type: 3}
-  - {fileID: 8300000, guid: 4c87668f8442e412f95b8073fdb1021d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!136 &13670108
 CapsuleCollider:
   m_ObjectHideFlags: 1
