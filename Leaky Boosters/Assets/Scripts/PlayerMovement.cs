@@ -98,6 +98,9 @@ public class PlayerMovement : MonoBehaviour
 
             transform.localScale = Vector3.Lerp(transform.localScale, MaxChargeScale, Time.deltaTime * ChargeScaleUpTime);
 
+			if (IsCharging && transform.localScale.magnitude >= 3.3f)
+				IsCharging = false;
+
             PlayChargeSound();
 
         }
@@ -106,8 +109,10 @@ public class PlayerMovement : MonoBehaviour
 		{
             // shoot
 		    //if (direction != Vector3.zero)
-
-			IsCharging = true; 
+			if (!IsCharging)
+				IsCharging = true;
+/*			else
+				IsCharging = false;*/
 			//StartCoroutine (Charging (chargingMultiplier));
 
 		    rigidbody.AddForce(transform.forward*chargingMultiplier, forcemode);
@@ -131,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * ChargeScaleDownTime);
 
-			if (IsCharging && transform.localScale.magnitude <= 3.3f)
+			if (IsCharging && transform.localScale.magnitude <= 3.3f )
 			{
 				IsCharging = false;
 			}
