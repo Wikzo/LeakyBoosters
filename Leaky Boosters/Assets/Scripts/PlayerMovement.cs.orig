@@ -61,11 +61,15 @@ public class PlayerMovement : MonoBehaviour
         spawnZones = FindObjectOfType<SpawnZones>();
         killZone = spawnZones.transform;
 		colorSprite.color = playerColor;
+<<<<<<< HEAD
         //cubeRenderer.material.color = playerColor;
 
         audioSource = GetComponent<AudioSource>();
+=======
 		//cubeRenderer.material.color = playerColor;
 
+		IsCharging = false;
+>>>>>>> f35f76083d8ef90a395a873c87e88ea3a5bd79b1
     }
 
     void Update()
@@ -118,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 		        //rigidbody.AddForce(Vector3.up * chargingMultiplier * jumpPower, forcemode);
 		    }*/
 
-			//print ("im here");
+			print ("im here");
 
 		    chargingMultiplier = 0;
 

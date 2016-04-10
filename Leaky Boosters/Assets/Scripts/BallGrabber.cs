@@ -70,7 +70,7 @@ public class BallGrabber : MonoBehaviour {
 	void StayOnPlayer()
 	{
 
-        transform.position = curOwner.transform.position + offset*curOwner.transform.localScale.y*1.2f;
+        transform.position = curOwner.transform.position + offset*curOwner.transform.localScale.y;
 
 		int playerNum = -1;
 		for(int i = 0; i < GameController.Instance.activePlayers.Length; i++){
