@@ -131,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * ChargeScaleDownTime);
 
-			if (IsCharging && transform.localScale.magnitude <= 3.0f)
+			if (IsCharging && transform.localScale.magnitude <= 3.3f)
 			{
 				IsCharging = false;
 			}
@@ -246,10 +246,10 @@ public class PlayerMovement : MonoBehaviour
 			//print ("Got hit");
 		}
 	}
-
+/*
 	IEnumerator Charging(float timeAmount)
 	{
 		yield return new WaitForSeconds (timeAmount);
 		IsCharging = false;
-	}
+	}*/
 }
