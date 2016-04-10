@@ -72,14 +72,15 @@ public class BallGrabber : MonoBehaviour {
 
         transform.position = curOwner.transform.position + offset*curOwner.transform.localScale.y*1.2f;
 
-		int playerNum = 0;
+		int playerNum = -1;
 		for(int i = 0; i < GameController.Instance.activePlayers.Length; i++){
 			if(GameController.Instance.activePlayers[i] == curOwner){
 				playerNum = i;
 			}
 		}
 
-		PlayerScores.AddScore(playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
+        if (playerNum != -1)
+    		PlayerScores.AddScore(playerNum, Mathf.FloorToInt(Time.deltaTime * 1000));
 
         transform.RotateAround(Vector3.up, PlayerScores.GetScore(playerNum) * Time.deltaTime / 1000);
 
@@ -116,7 +117,7 @@ public class BallGrabber : MonoBehaviour {
 
             Rigidbody rb = hit.GetComponent<Rigidbody>();
 
-			print (playerBody);
+			//print (playerBody);
 
 			if (rb != null && rb != playerBody)
             {

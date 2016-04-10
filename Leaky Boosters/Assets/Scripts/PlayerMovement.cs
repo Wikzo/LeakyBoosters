@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using InControl;
 using UnityEngine.SceneManagement;
 
@@ -48,13 +49,18 @@ public class PlayerMovement : MonoBehaviour
     private SpawnZones spawnZones;
     private Transform killZone;
 
+    private AudioSource audioSource;
+    public List<AudioClip> ShootSounds;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         spawnZones = FindObjectOfType<SpawnZones>();
         killZone = spawnZones.transform;
 		colorSprite.color = playerColor;
-		//cubeRenderer.material.color = playerColor;
+        //cubeRenderer.material.color = playerColor;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -87,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
 
             transform.localScale = Vector3.Lerp(transform.localScale, MaxChargeScale, Time.deltaTime * ChargeScaleUpTime);
 
+            PlayChargeSound();
+
         }
         // shooting
         else if (currentButtonState == ButtonStatus.Up && lastButtonState == ButtonStatus.Down)
@@ -103,7 +111,9 @@ public class PlayerMovement : MonoBehaviour
 
 
 		    chargingMultiplier = 0;
-        }
+
+		    StopChargeSound();
+		}
         // idle
         else
         {
@@ -136,6 +146,26 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.y < killZone.position.y - 10)
             Respawn();
 
+    }
+
+    private void PlayChargeSound()
+    {
+        if (!audioSource.isPlaying)
+            audioSource.Play();
+
+        audioSource.pitch += Time.deltaTime*0.5f;
+        audioSource.pitch = Mathf.Min(audioSource.pitch, 3);
+    }
+
+    private void StopChargeSound()
+    {
+        if (!audioSource.isPlaying)
+            return;
+
+        audioSource.Stop();
+        audioSource.pitch = 1;
+
+        audioSource.PlayOneShot(ShootSounds[Random.Range(0, ShootSounds.Count)]);
     }
 
 	void FixedUpdate(){

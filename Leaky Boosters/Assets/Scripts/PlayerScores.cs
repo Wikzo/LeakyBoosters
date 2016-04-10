@@ -9,11 +9,12 @@ public class PlayerScores {
 		scores = new float[playercount];
 	}
 
-	public static void AddScore(int player, float score){
-		scores[player] += score;
+	public static void AddScore(int player, float score)
+	{
+	    scores[player] += score;
 	}
 
-	public static float GetScore(int player){
+    public static float GetScore(int player){
 		return scores[player];
 	}
 

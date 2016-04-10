@@ -170,7 +170,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114414, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
@@ -445,7 +445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114414, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
@@ -535,7 +535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114414, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
@@ -887,19 +887,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 3463f6281bcf9f541a243c925216230c, type: 2}
     - target: {fileID: 447926, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3.3438594
+      value: 4.674045
       objectReference: {fileID: 0}
     - target: {fileID: 447926, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3.343858
+      value: 4.6740427
       objectReference: {fileID: 0}
     - target: {fileID: 447926, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
       propertyPath: m_LocalScale.z
-      value: 3.343858
+      value: 4.6740427
       objectReference: {fileID: 0}
     - target: {fileID: 152184, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11433616, guid: d48ad0236e8f6494ab257d58bb948931, type: 2}
       propertyPath: ForceFieldPower
@@ -1126,7 +1126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114414, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba0585ed8dc41f45b0870e470adea9c, type: 2}

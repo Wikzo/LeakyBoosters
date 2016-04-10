@@ -60,6 +60,7 @@ GameObject:
   - 114: {fileID: 11411092}
   - 136: {fileID: 13670108}
   - 114: {fileID: 11402308}
+  - 82: {fileID: 8200652}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1040,6 +1041,80 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!82 &8200652
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5f846348a108e8949aa125efae9f9573, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.684
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9518626
 Animator:
   serializedVersion: 3
@@ -1147,10 +1222,16 @@ MonoBehaviour:
   MaxCharging: 200
   ChargeScaleUpTime: 2
   ChargeScaleDownTime: 0.5
-  MaxChargeScale: {x: 2, y: 2, z: 2}
+  MaxChargeScale: {x: 2.4, y: 2.4, z: 2.4}
   hitPower: 500
   jumpPower: 1
   colorSprite: {fileID: 21274472}
+  ShootSounds:
+  - {fileID: 8300000, guid: 2d1717219ed269d449d1d947fa139022, type: 3}
+  - {fileID: 8300000, guid: fa424061a34ba5841b8d5153d6d79fb7, type: 3}
+  - {fileID: 8300000, guid: 02bada895dd5fee4eae337b6eab0ac28, type: 3}
+  - {fileID: 8300000, guid: 8225077afd628ef4cac438d1e0b644e4, type: 3}
+  - {fileID: 8300000, guid: 0be47fbd79323a1419814c3d480f2cca, type: 3}
 --- !u!136 &13670108
 CapsuleCollider:
   m_ObjectHideFlags: 1
